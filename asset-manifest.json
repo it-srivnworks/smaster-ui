@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/smaster-ui/static/css/main.95c5ffb1.css",
-    "main.js": "/smaster-ui/static/js/main.44ccdffe.js",
+    "main.js": "/smaster-ui/static/js/main.9c0781bd.js",
     "static/js/787.6dca56c5.chunk.js": "/smaster-ui/static/js/787.6dca56c5.chunk.js",
     "static/media/logo.svg": "/smaster-ui/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/smaster-ui/index.html",
     "main.95c5ffb1.css.map": "/smaster-ui/static/css/main.95c5ffb1.css.map",
-    "main.44ccdffe.js.map": "/smaster-ui/static/js/main.44ccdffe.js.map",
+    "main.9c0781bd.js.map": "/smaster-ui/static/js/main.9c0781bd.js.map",
     "787.6dca56c5.chunk.js.map": "/smaster-ui/static/js/787.6dca56c5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.95c5ffb1.css",
-    "static/js/main.44ccdffe.js"
+    "static/js/main.9c0781bd.js"
   ]
 }
