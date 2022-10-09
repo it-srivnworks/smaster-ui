@@ -35,7 +35,7 @@ const UserInfo = () => {
                 className="btn btn-primary"
                 onClick={showHndlr}
               >
-                Refresh
+                Refresh List
               </button>
             </div>
             <div className="col-md-3">
