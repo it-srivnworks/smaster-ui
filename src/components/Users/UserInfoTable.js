@@ -18,7 +18,7 @@ const UserInfoTable = (props) => {
               <th scope="row">{user.userId}</th>
               <td>{user.userName}</td>
               <td>{user.userEmail}</td>
-              <td>{user.useAge}</td>
+              <td>{user.userAge}</td>
             </tr>
           ))}
         </tbody>
