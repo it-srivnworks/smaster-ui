@@ -5,12 +5,12 @@ import RangeSelector02 from "../common/RangeSelector02";
 
 const AddNewUser02 = () => {
   console.log("--AddNewUser--02--");
+
   const initFormData = {
     userName: "",
     userEmail: "",
   };
-  const userAgeRef = useRef();
-
+  
   const formReducer = (state, action) => {
     switch (action.type) {
       case "Input_TXT":
@@ -31,7 +31,7 @@ const AddNewUser02 = () => {
     });
   };
 
-  const formRangeChangeHndlr = (x,y) => {
+  const formRangeChangeHndlr = (x, y) => {
     dispatcher({
       type: "Input_RANGE",
       field: x,
@@ -80,7 +80,6 @@ const AddNewUser02 = () => {
             stepVal={1}
             rangeLabel="Age"
             name="userAge"
-            ref={userAgeRef}
             formRangeChangeHndlr={formRangeChangeHndlr}
           ></RangeSelector02>
         </div>
