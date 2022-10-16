@@ -1,4 +1,5 @@
 import React from "react";
+import AddNewUser from "../Users/AddNewUser";
 import ViewUserInfo from "../Users/ViewUserInfo";
 
 const MainPage = () => {
@@ -6,6 +7,7 @@ const MainPage = () => {
   return (
     <>
       <div className="main-panel">
+        <AddNewUser></AddNewUser>
         <ViewUserInfo></ViewUserInfo>
       </div>
     </>

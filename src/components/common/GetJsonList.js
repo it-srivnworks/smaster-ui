@@ -1,32 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import UserInfoTable from "../Users/UserInfoTable";
+import useHttpGET from "../../hooks/useHttpGET";
 
 const GetJsonList = (props) => {
-  console.log("--?--GetJsonList");
+  console.log("----GetJsonList");
+  const { isloaded, respData, respError } = useHttpGET(props.url);
 
-  const [isloaded, setIsLoaded] = useState(false);
-  const [url, setUrl] = useState(props.url);
-  const [respData, updateRespData] = useState([]);
   const [cnt, scnt] = useState(0);
-
-  const loadData = useCallback(() => {
-    console.log("Start Loading Data");
-    fetch(url, { method: "GET" })
-      .then((res) => {
-        console.log("url : ..........." + url);
-        return res.json();
-      })
-      .then((data) => {
-        updateRespData(data);
-        setIsLoaded(true);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }, []);
-
-  useEffect(loadData, [props.url]);
-
   const toggleBtn = () => {
     scnt(cnt+1)
   };
