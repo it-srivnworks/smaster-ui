@@ -26,7 +26,7 @@ const AddNewUser = () => {
       .then((res) => console.log(res))
       .catch((error) => console.log(error));
        */
-    const url = "http://localhost:8080/smaster-home/welcome/addNewUser";
+    const url = "http://localhost:8080/smaster-home/users/addNewUser";
     const reqOption = {
       method: "POST",
       body: JSON.stringify(addData),
