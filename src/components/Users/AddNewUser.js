@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import RangeSelector from "../common/RangeSelector";
 import axios from "axios";
+import useHttpPOST from "../../hooks/useHttpPOST";
 
 const AddNewUser = () => {
   console.log("--AddNewUser--");
@@ -8,8 +9,15 @@ const AddNewUser = () => {
   const userNameRef = useRef();
   const useEmailRef = useRef();
   const useAgeRef = useRef();
+  
 
   const rangeComp = { minVal: 18, maxVal: 60, stepVal: 1, rangeLabel: "Age" };
+
+  const processRespData = (data) =>{
+   console.log("Just Returnong something!")
+  }
+
+  const { isResploaded, respMessage , respError, sendPostReq : fetchData } = useHttpPOST()
 
   const addNewBtnHndlr = (e) => {
     e.preventDefault();
@@ -32,9 +40,7 @@ const AddNewUser = () => {
       body: JSON.stringify(addData),
       headers: { "Content-Type": "application/json" },
     };
-    fetch(url, reqOption)
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
+    fetchData(url,addData,processRespData)
   };
 
   return (
@@ -81,6 +87,9 @@ const AddNewUser = () => {
             >
               Add New
             </button>
+            <div className="mb-3">
+            {isResploaded && <h4>{respMessage}</h4>}
+            </div>
           </div>
         </div>
       </div>
