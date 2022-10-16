@@ -20,8 +20,19 @@ const AddNewUser = () => {
       userAge: useAgeRef.current.value,
     };
 
+    /*
     axios
       .post("http://localhost:8080/smaster-home/welcome/addNewUser", addData)
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
+       */
+    const url = "http://localhost:8080/smaster-home/welcome/addNewUser";
+    const reqOption = {
+      method: "POST",
+      body: JSON.stringify(addData),
+      headers: { "Content-Type": "application/json" },
+    };
+    fetch(url, reqOption)
       .then((res) => console.log(res))
       .catch((error) => console.log(error));
   };

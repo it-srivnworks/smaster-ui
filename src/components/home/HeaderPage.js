@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types'
 
 const HeaderPage = (props) => {
-    console.log('--HeaderPage--')
+    console.log('---HeaderPage')
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light">
