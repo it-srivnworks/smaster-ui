@@ -1,18 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useImperativeHandle } from "react";
 import GetJsonList from "../common/GetJsonList";
 
-const ViewUserInfo = () => {
+const ViewUserInfo = (props) => {
   console.log("----ViewUserInfo");
 
-  const [flag, setFlag] = useState(false);
-  const [count, setCount] = useState(0);
-
-  console.log(flag)
   return (
     <>
-      <p>Value : {count}</p>
-      <button onClick={()=>{setFlag(!flag)}}>Button</button>
-      <GetJsonList url="http://localhost:8080/smaster-home/users/getAllUserInfo"></GetJsonList>
+      <GetJsonList url="http://localhost:8080/smaster-home/users/getAllUserInfo" reloadListToggle={props.reloadListToggle}></GetJsonList>
     </>
   );
 };

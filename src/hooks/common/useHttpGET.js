@@ -1,28 +1,30 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-const useHttpGET = (url) => {
-  const [isloaded, setIsLoaded] = useState(false);
+const useHttpGET = () => {
+  const [isReqComplete, setIsReqComplete] = useState(false);
   const [respData, updateRespData] = useState([]);
   const [respError, setError] = useState(null);
 
-  useEffect(() => {
+  const sendGETReq = async (url,processRespData) => {
     console.log("Start Loading Data");
     fetch(url, { method: "GET" })
       .then((res) => {
-        console.log("url : ..........." + url);
+        console.log("sendGETReq url :" + url);
         return res.json();
       })
       .then((data) => {
         updateRespData(data);
-        setIsLoaded(true);
+        setIsReqComplete(true);
+        processRespData()
       })
       .catch((error) => {
         console.error("Error:", error);
         setError(error);
+        processRespData()
       });
-  }, [url]);
+  };
 
-  return { isloaded, respData, respError };
+  return { isReqComplete, respData, respError , sendGETReq};
 };
 
 export default useHttpGET;

@@ -1,97 +1,136 @@
-import React, { useRef, useState } from "react";
+import { React, useRef } from "react";
 import RangeSelector from "../common/RangeSelector";
-import axios from "axios";
-import useHttpPOST from "../../hooks/useHttpPOST";
+import useInputTxt from "../../hooks/ui/useInputTxt";
+import useInputEmail from "../../hooks/ui/useInputEmail";
+import useHttpPOST from "../../hooks/common/useHttpPOST";
 
-const AddNewUser = () => {
-  console.log("--AddNewUser--");
+const AddNewUser = (props) => {
+  const {
+    inputVal: nameInputVal,
+    isValError: nameError,
+    errorMsg: nameErrorMsg,
+    valChangeH: nameChangeH,
+    inputBlurH: nameBlurH,
+    resetField: resetName
+  } = useInputTxt();
 
-  const userNameRef = useRef();
-  const useEmailRef = useRef();
+  const {
+    inputVal: emailInputVal,
+    isValError: emailError,
+    errorMsg: emailErrorMsg,
+    isTouched: isEmailTouched,
+    valChangeH: emailChangeH,
+    inputBlurH: emailBlurH,
+    checkFromBackEnd: isEmailUsed,
+    resetField: resetEmail
+  } = useInputEmail();
+
   const useAgeRef = useRef();
-  
 
-  const rangeComp = { minVal: 18, maxVal: 60, stepVal: 1, rangeLabel: "Age" };
+  const {
+    isReqComplete,
+    respStatusCode ,
+    respMessage,
+    respError,
+    sendPOSTReq: submitAddNewUser
+  } = useHttpPOST();
 
-  const processRespData = (data) =>{
-   console.log("Just Returnong something!")
+  const respFunc = () => {
+    props.setReloadListToggle(!props.reloadListToggle)
+    resetForm()
   }
 
-  const { isResploaded, respMessage , respError, sendPostReq : fetchData } = useHttpPOST()
+  const resetForm = () => {
+    resetName()
+    resetEmail()
+  }
+
+  const chckEmailLinkHndlr = (e) => {
+    isEmailUsed();
+  }
 
   const addNewBtnHndlr = (e) => {
-    e.preventDefault();
-
     const addData = {
-      userName: userNameRef.current.value,
-      userEmail: useEmailRef.current.value,
+      userName: nameInputVal,
+      userEmail: emailInputVal,
       userAge: useAgeRef.current.value,
     };
-
-    /*
-    axios
-      .post("http://localhost:8080/smaster-home/welcome/addNewUser", addData)
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
-       */
     const url = "http://localhost:8080/smaster-home/users/addNewUser";
-    const reqOption = {
-      method: "POST",
-      body: JSON.stringify(addData),
-      headers: { "Content-Type": "application/json" },
-    };
-    fetchData(url,addData,processRespData)
+    submitAddNewUser(url, addData, respFunc);
   };
 
   return (
     <>
-      <div className="card" style={{ width: 600 }}>
-        <div className="card-body">
-          <div className="mb-3">
-            <label htmlFor="userName" className="form-label">
-              User Name
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="userName"
-              placeholder="test-user-01"
-              ref={userNameRef}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="userEmail" className="form-label">
-              Email address
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Recipient's email"
-              ref={useEmailRef}
-            />
-          </div>
-          <div className="mb-3">
-            <RangeSelector
-              minVal={18}
-              maxVal={60}
-              stepVal={1}
-              rangeLabel="Age"
-              ref={useAgeRef}
-            ></RangeSelector>
-          </div>
-          <div className="mb-3">
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={addNewBtnHndlr}
-            >
-              Add New
-            </button>
-            <div className="mb-3">
-            {isResploaded && <h4>{respMessage}</h4>}
+      <div className="row">
+        <div className="col-md-4"></div>
+        <div className="col-md-4">
+          <div className="card border-primary mb-3">
+            <div className="card-header text-bg-primary p-3">
+              <h5 className="offcanvas-title">Add New User</h5>
+            </div>
+            <div className="card-body text-primary">
+              <label htmlFor="userName" className="form-label">
+                First Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="userName"
+                placeholder="test-user-01"
+                value={nameInputVal}
+                onChange={nameChangeH}
+                onBlur={nameBlurH}
+                maxLength={20}
+              />
+              {nameError && <p className="text-danger">{nameErrorMsg}</p>}
+            </div>
+            <div className="card-body text-primary">
+              <label htmlFor="userEmail" className="form-label">
+                Email address&nbsp;&nbsp;
+              </label>
+              {!emailError && isEmailTouched && (
+                <a href="#" className="link-secondary" onClick={chckEmailLinkHndlr}>
+                  Check Availaibility
+                </a>
+              )}
+              <div className="input-group mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Recipient's email"
+                  value={emailInputVal}
+                  onChange={emailChangeH}
+                  onBlur={emailBlurH}
+                  maxLength={40}
+                />
+              </div>
+              {emailError && (
+                <div className="input-group mb-3">
+                  <p className="text-danger">{emailErrorMsg}</p>
+                </div>
+              )}
+            </div>
+            <div className="card-body text-primary">
+              <RangeSelector
+                minVal={18}
+                maxVal={60}
+                stepVal={1}
+                rangeLabel="Age"
+                ref={useAgeRef}
+              ></RangeSelector>
+            </div>
+            <div className="card-body text-primary">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={addNewBtnHndlr}
+              >
+                Add New
+              </button>
             </div>
           </div>
         </div>
+        <div className="col-md-4"></div>
       </div>
     </>
   );

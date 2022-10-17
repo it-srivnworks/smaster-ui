@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, memo, useState } from "react";
 import PropTypes from 'prop-types'
 
 const RangeSelector = forwardRef((props,propRef) => {
@@ -40,4 +40,4 @@ RangeSelector.defaultProps = {
     rangleLabel : 'Range?',
   };
 
-export default RangeSelector;
+export default memo(RangeSelector);
