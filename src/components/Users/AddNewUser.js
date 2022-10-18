@@ -3,8 +3,13 @@ import RangeSelector from "../common/RangeSelector";
 import useInputTxt from "../../hooks/ui/useInputTxt";
 import useInputEmail from "../../hooks/ui/useInputEmail";
 import useHttpPOST from "../../hooks/common/useHttpPOST";
+import { useDispatch } from "react-redux";
+import {addUserActions} from '../../reduxstore/userStore'
 
 const AddNewUser = (props) => {
+
+  const dispatch = useDispatch()
+
   const {
     inputVal: nameInputVal,
     isValError: nameError,
@@ -36,7 +41,7 @@ const AddNewUser = (props) => {
   } = useHttpPOST();
 
   const respFunc = () => {
-    props.setReloadListToggle(!props.reloadListToggle)
+    dispatch(addUserActions.increment())
     resetForm()
   }
 

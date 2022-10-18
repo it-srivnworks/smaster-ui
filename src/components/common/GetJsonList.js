@@ -1,9 +1,12 @@
-import React, { forwardRef, useEffect, useImperativeHandle } from "react";
+import React, { forwardRef, useEffect, useImperativeHandle, useState } from "react";
 import UserInfoTable from "../Users/UserInfoTable";
 import useHttpGET from "../../hooks/common/useHttpGET";
+import { useSelector } from "react-redux";
 
 const GetJsonList = (props) => {
   console.log("----GetJsonList");
+  const counter = useSelector(state => state.addUserR.addUserCounter)
+  const loggedIn = useSelector(state => state.auth.loggedIn)
 
   const {
     isReqComplete,
@@ -25,12 +28,12 @@ const GetJsonList = (props) => {
 
   useEffect(() => {
     refreshData();
-  }, [props.reloadListToggle]);
+  }, [counter]);
 
   return (
     <>
       <button type="button" className="btn btn-primary" onClick={refreshData}>
-        Refresh Data{props.counter}
+        Refresh Data : 
       </button>
       {respData.statusCode == 200 && (
         <UserInfoTable userData={respData.data}></UserInfoTable>

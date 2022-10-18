@@ -4,13 +4,12 @@ import ViewUserInfo from "../Users/ViewUserInfo";
 
 const MainPage = () => {
   console.log("---MainPage--");
-  const [reloadListToggle,setReloadListToggle] = useState(false)
-
+  
   return (
     <>
       <div className="main-panel">
-        <AddNewUser reloadListToggle={reloadListToggle} setReloadListToggle={setReloadListToggle}></AddNewUser>
-        <ViewUserInfo reloadListToggle={reloadListToggle}></ViewUserInfo>
+        <AddNewUser></AddNewUser>
+        <ViewUserInfo></ViewUserInfo>
       </div>
     </>
   );

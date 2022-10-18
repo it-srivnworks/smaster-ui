@@ -6,7 +6,7 @@ const ViewUserInfo = (props) => {
 
   return (
     <>
-      <GetJsonList url="http://localhost:8080/smaster-home/users/getAllUserInfo" reloadListToggle={props.reloadListToggle}></GetJsonList>
+      <GetJsonList url="http://localhost:8080/smaster-home/users/getAllUserInfo"></GetJsonList>
     </>
   );
 };
