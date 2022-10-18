@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import {addUserActions} from '../../reduxstore/userStore'
 
 const AddNewUser = (props) => {
+  console.log("--AddNewUser");
 
   const dispatch = useDispatch()
 

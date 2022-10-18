@@ -1,12 +1,10 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 const Tester = () => {
-console.log('----Tester')    
-const counter = useSelector(state => state.addUserReducer.addUserCounter)
+console.log('--Tester')    
   return (
     <div>
-      Tester : {counter}
+      Tester!
     </div>
   )
 }

@@ -1,0 +1,70 @@
+import React from "react";
+import useInputEmail from "../../hooks/ui/useInputEmail";
+
+const LoginPage = () => {
+  console.log("--Login");
+
+  const {
+    inputVal: emailInputVal,
+    isValError: emailError,
+    errorMsg: emailErrorMsg,
+    isTouched: isEmailTouched,
+    valChangeH: emailChangeH,
+    inputBlurH: emailBlurH,
+    checkFromBackEnd: isEmailUsed,
+    resetField: resetEmail,
+  } = useInputEmail();
+
+  const addNewBtnHndlr = (e) => {
+    
+  };
+
+  return (
+    <>
+      <div className="row">&nbsp;</div>
+      <div className="row">
+        <div className="col-md-4"></div>
+        <div className="col-md-4">
+          <div className="card border-primary mb-3">
+            <div className="card-header text-bg-primary p-3">
+              <h5 className="offcanvas-title">Sign In</h5>
+            </div>
+            <div className="card-body text-primary">
+              <label htmlFor="userEmail" className="form-label">
+                Email address&nbsp;&nbsp;
+              </label>
+              <div className="input-group mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="sample@srivn.com"
+                  value={emailInputVal}
+                  onChange={emailChangeH}
+                  onBlur={emailBlurH}
+                  maxLength={40}
+                />
+              </div>
+              {emailError && (
+                <div className="input-group mb-3">
+                  <p className="text-danger">{emailErrorMsg}</p>
+                </div>
+              )}
+              <div className="card-body text-primary">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={addNewBtnHndlr}
+                >
+                  Enter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-4"></div>
+      </div>
+    </>
+  );
+};
+
+export default LoginPage;
