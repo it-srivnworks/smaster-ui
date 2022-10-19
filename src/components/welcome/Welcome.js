@@ -15,8 +15,8 @@ const Welcome = () => {
       <Route path="/welcome/login" exact>
         <LoginPage></LoginPage>
       </Route>
-      <Route path="/welcome/tester" exact>
-        <Tester></Tester>
+      <Route path="/welcome/home" exact>
+        <HomePage></HomePage>
       </Route>
       <Route path="/welcome/*">
         <NotFound></NotFound>

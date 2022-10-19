@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useInputEmail from "../../hooks/ui/useInputEmail";
 import useLoginChecks from "../../hooks/users/useLoginChecks";
+import useUserSessionCheck from "../../hooks/users/useUserSessionCheck";
 import * as AppConstants from "../../reduxstore/AppConstants";
 
 const LoginPage = () => {
   console.log("--Login");
-  
+
   const {
     inputVal: emailInputVal,
     isValError: emailError,
@@ -23,6 +24,8 @@ const LoginPage = () => {
     resetField: resetBtn,
   } = useLoginChecks();
 
+  const { isLoginExist: checkIsLogin } = useUserSessionCheck();
+
   const checkEmailHndlr = (e) => {
     checkEmail(emailInputVal);
   };
@@ -31,6 +34,12 @@ const LoginPage = () => {
     resetBtn();
     resetEmail();
   };
+
+  useEffect(() => {
+    console.log("Login...");
+    checkIsLogin();
+  }, []);
+
   return (
     <>
       <div className="row">&nbsp;</div>
@@ -68,7 +77,7 @@ const LoginPage = () => {
                   disabled={emailError | !isEmailTouched}
                   onClick={checkEmailHndlr}
                 >
-                  Enter 
+                  Enter
                 </button>
                 &nbsp;&nbsp;
                 <button

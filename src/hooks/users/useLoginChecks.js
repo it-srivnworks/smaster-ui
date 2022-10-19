@@ -57,7 +57,7 @@ const useLoginChecks = () => {
   const successLogin = () => {
     console.log("successLogin");
     dispatch(authActions.loggIn({ userEmail : inputData }));
-    history.push("/welcome/tester");
+    history.replace("/welcome/home");
   };
 
   useEffect(() => {

@@ -1,11 +1,22 @@
 import React from "react";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
+import { authActions } from "../../reduxstore/authStore";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const HeaderPage = (props) => {
-    console.log('---HeaderPage')
+  console.log("---HeaderPage");
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const logOutHndlr = () => {
+    dispatch(authActions.logOut());
+    history.replace("/welcome/login");
+  };
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg bg-info">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             {props.title}
@@ -25,12 +36,21 @@ const HeaderPage = (props) => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#">
+                  Dashboard
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">
                   Users
                 </a>
               </li>
             </ul>
             <form className="d-flex" role="search">
-              <button className="btn btn-outline-success" type="submit">
+              <button
+                className="btn btn-outline-light"
+                type="button"
+                onClick={logOutHndlr}
+              >
                 LogOut
               </button>
             </form>
@@ -42,11 +62,11 @@ const HeaderPage = (props) => {
 };
 
 HeaderPage.propTypes = {
-    title : PropTypes.string.isRequired,
-}
+  title: PropTypes.string.isRequired,
+};
 
 HeaderPage.defaultProps = {
-    title: 'Title?'
-  };
+  title: "Title?",
+};
 
 export default HeaderPage;

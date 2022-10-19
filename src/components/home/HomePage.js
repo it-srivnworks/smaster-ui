@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import useUserSessionCheck from '../../hooks/users/useUserSessionCheck';
 import HeaderPage from './HeaderPage'
 import MainPage from './MainPage'
-import Tester from '../test/Tester'
-import { Provider } from 'react-redux'
-import store from '../../reduxstore/appStore'
 
 const HomePage = () => {
   console.log("--HomePage");
+
+  const { isLoginExist: checkIsLogin } = useUserSessionCheck();
+  useEffect(() => {
+    console.log("Login...");
+    checkIsLogin();
+  }, []);
+
   return (
     <>
       <HeaderPage title='Smaster'></HeaderPage>
-      <Provider store={store}><MainPage></MainPage></Provider>
-      {/*<Tester></Tester>*/}
+      <MainPage></MainPage>
     </>
   )
 }
