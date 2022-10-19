@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import useHttpGETParam from "../common/useHttpGETParam";
+import React, { useState } from "react";
 
 const useInputEmail = () => {
+  console.log("--useInputEmail01");
   const [inputVal, setInputVal] = useState("");
-  const [isTouched, setIsTouched] = useState(false);
   const [isValError, setIsValError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [isTouched, setIsTouched] = useState(false);
 
   const valChangeH = (e) => {
     e.preventDefault();
@@ -18,31 +18,11 @@ const useInputEmail = () => {
     setIsTouched(true);
   };
 
-  const resetField = (e) =>{
-    setInputVal('')
-    setIsTouched(false)
-    setIsValError(false)
-    setErrorMsg('')
-}
-
-  const checkFromBackEnd = () => {
-    console.log("Checking from Back End" + inputVal);
-    checkEmail(
-      "http://localhost:8080/smaster-home/users/getEmail",
-      { userEmail: inputVal }
-    );
-  };
-
-  const respFunc = () => {
-    if (respError != null) {
-      console.log("respError" + respError);
-    } else if (respData != null) {
-      setIsValError(true);
-      setErrorMsg(respData.message);
-    }else{
-      setIsValError(true);
-      setErrorMsg('Error');
-    }
+  const resetField = (e) => {
+    setInputVal("");
+    setIsValError(false);
+    setErrorMsg("");
+    setIsTouched(false);
   };
 
   const validateInput = (data) => {
@@ -58,27 +38,6 @@ const useInputEmail = () => {
     }
   };
 
-  const {
-    isResComplete,
-    respData,
-    respError,
-    sendGETParamReq: checkEmail,
-  } = useHttpGETParam();
-
-  useEffect(()=>{
-    if (respError != null) {
-      setIsValError(true);
-      setErrorMsg(respData.message);
-    }else{
-      if(respData.statusCode == 226 || respData.statusCode == 200){
-        setIsValError(true);
-        setErrorMsg(respData.message);
-      }else{
-        setIsValError(false);
-      }
-    }
-  },[respData])
-  
   return {
     inputVal,
     isValError,
@@ -86,8 +45,7 @@ const useInputEmail = () => {
     errorMsg,
     valChangeH,
     inputBlurH,
-    checkFromBackEnd,
-    resetField
+    resetField,
   };
 };
 

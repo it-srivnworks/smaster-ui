@@ -1,9 +1,11 @@
 import React from "react";
 import useInputEmail from "../../hooks/ui/useInputEmail";
+import useLoginChecks from "../../hooks/users/useLoginChecks";
+import * as AppConstants from "../../reduxstore/AppConstants";
 
 const LoginPage = () => {
   console.log("--Login");
-
+  
   const {
     inputVal: emailInputVal,
     isValError: emailError,
@@ -11,14 +13,24 @@ const LoginPage = () => {
     isTouched: isEmailTouched,
     valChangeH: emailChangeH,
     inputBlurH: emailBlurH,
-    checkFromBackEnd: isEmailUsed,
     resetField: resetEmail,
   } = useInputEmail();
 
-  const addNewBtnHndlr = (e) => {
-    
+  const {
+    respSCode,
+    respMsg,
+    checkEmail,
+    resetField: resetBtn,
+  } = useLoginChecks();
+
+  const checkEmailHndlr = (e) => {
+    checkEmail(emailInputVal);
   };
 
+  const resetEmailHndlr = () => {
+    resetBtn();
+    resetEmail();
+  };
   return (
     <>
       <div className="row">&nbsp;</div>
@@ -53,11 +65,27 @@ const LoginPage = () => {
                 <button
                   type="button"
                   className="btn btn-primary"
-                  onClick={addNewBtnHndlr}
+                  disabled={emailError | !isEmailTouched}
+                  onClick={checkEmailHndlr}
                 >
-                  Enter
+                  Enter 
+                </button>
+                &nbsp;&nbsp;
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={resetEmailHndlr}
+                >
+                  Reset
                 </button>
               </div>
+              {respSCode === AppConstants.STATUS_ERROR && (
+                <div className="card-body text-primary">
+                  <div className="input-group mb-3">
+                    <p className="text-danger">{respMsg}</p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
