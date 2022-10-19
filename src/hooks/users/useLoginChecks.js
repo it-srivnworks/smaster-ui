@@ -4,6 +4,7 @@ import useHttpGETParam from "../common/useHttpGETParam";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../reduxstore/authStore";
+import * as approutes from "../../reduxstore/AppRoutes";
 
 const useLoginChecks = () => {
   console.log("--useLoginChecks");
@@ -57,7 +58,7 @@ const useLoginChecks = () => {
   const successLogin = () => {
     console.log("successLogin");
     dispatch(authActions.loggIn({ userEmail : inputData }));
-    history.replace("/welcome/home");
+    history.replace(approutes.app_home);
   };
 
   useEffect(() => {

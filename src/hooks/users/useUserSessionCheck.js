@@ -7,9 +7,9 @@ const useUserSessionCheck = () => {
     const isLoginExist = () => {
     const loggedIn = sessionStorage.getItem("loggedIn");
     if (loggedIn != null && loggedIn == 1) {
-      history.replace("/welcome/home");
+      history.replace("/app/welcome");
     } else {
-      history.replace("/welcome/login");
+      history.replace("/app/login");
     }
   };
 

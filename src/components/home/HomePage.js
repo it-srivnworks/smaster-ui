@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
-import useUserSessionCheck from '../../hooks/users/useUserSessionCheck';
-import HeaderPage from './HeaderPage'
-import MainPage from './MainPage'
+import React, { useEffect } from "react";
+import { Switch } from "react-router-dom";
+import useUserSessionCheck from "../../hooks/users/useUserSessionCheck";
+import HeaderPage from "./HeaderPage";
+import MainPage from "./MainPage";
 
 const HomePage = () => {
   console.log("--HomePage");
@@ -14,10 +15,10 @@ const HomePage = () => {
 
   return (
     <>
-      <HeaderPage title='Smaster'></HeaderPage>
+      <HeaderPage title="Smaster"></HeaderPage>
       <MainPage></MainPage>
     </>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

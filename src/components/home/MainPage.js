@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import UserDashBoard from "../dashboard/UserDashBoard";
 import AddNewUser from "../Users/AddNewUser";
 import UserHome from "../Users/UserHome";
 import ViewUserInfo from "../Users/ViewUserInfo";
+import * as approutes from "../../reduxstore/AppRoutes";
 
 const MainPage = () => {
   console.log("---MainPage--");
@@ -11,9 +12,17 @@ const MainPage = () => {
   return (
     <>
       <div className="main-panel">
-        Main Page!
+        <Switch>
+          <Route path={approutes.app_home} exact>
+            <Redirect to={approutes.app_home_dashboard} />
+          </Route>
+          <Route path={approutes.app_home_dashboard} exact>
             <UserDashBoard></UserDashBoard>
-           <UserHome></UserHome>
+          </Route>
+          <Route path={approutes.app_home_users} exact>
+            <UserHome></UserHome>
+          </Route>
+        </Switch>
       </div>
     </>
   );

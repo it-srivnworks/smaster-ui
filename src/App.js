@@ -10,9 +10,9 @@ function App() {
     <div>
       <Switch>
         <Route path="/" exact>
-          <Redirect to="/welcome" />
+          <Redirect to="/app" />
         </Route>
-        <Route path="/welcome">
+        <Route path="/app">
         <Provider store={store}><Welcome></Welcome></Provider>
         </Route>
         <Route path="*">

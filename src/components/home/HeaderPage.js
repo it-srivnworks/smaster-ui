@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { authActions } from "../../reduxstore/authStore";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import * as approutes from "../../reduxstore/AppRoutes";
+import { NavLink } from "react-router-dom";
 
 const HeaderPage = (props) => {
   console.log("---HeaderPage");
@@ -11,16 +13,16 @@ const HeaderPage = (props) => {
 
   const logOutHndlr = () => {
     dispatch(authActions.logOut());
-    history.replace("/welcome/login");
+    history.replace(approutes.app_login);
   };
 
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-info">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <NavLink className="navbar-brand" to={approutes.app_home}>
             {props.title}
-          </a>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -35,14 +37,14 @@ const HeaderPage = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <NavLink className="nav-link active" aria-current="page" to={approutes.app_home_dashboard}>
                   Dashboard
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <NavLink className="nav-link" aria-current="page" to={approutes.app_home_users}>
                   Users
-                </a>
+                </NavLink>
               </li>
             </ul>
             <form className="d-flex" role="search">
