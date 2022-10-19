@@ -46,8 +46,8 @@ const LoginPage = () => {
       <div className="row">
         <div className="col-md-4"></div>
         <div className="col-md-4">
-          <div className="card border-primary mb-3">
-            <div className="card-header text-bg-primary p-3">
+          <div className="card border-dark mb-3">
+            <div className="card-header text-bg-dark p-3">
               <h5 className="offcanvas-title">Sign In</h5>
             </div>
             <div className="card-body text-primary">
@@ -70,10 +70,10 @@ const LoginPage = () => {
                   <p className="text-danger">{emailErrorMsg}</p>
                 </div>
               )}
-              <div className="card-body text-primary">
+              <div className="card-body text-dark">
                 <button
                   type="button"
-                  className="btn btn-primary"
+                  className="btn btn-dark"
                   disabled={emailError | !isEmailTouched}
                   onClick={checkEmailHndlr}
                 >
