@@ -104,9 +104,9 @@ const HeaderPage = (props) => {
             <ul className="navbar-nav">
               <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
             </ul>
-            <form class="d-flex" role="search">
+            <form className="d-flex" role="search">
               <button
-                class="btn btn-outline-light"
+                className="btn btn-outline-light"
                 type="button"
                 onClick={logOutHndlr}
               >
