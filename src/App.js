@@ -1,13 +1,24 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { Redirect, Route, Switch } from "react-router-dom";
+import NotFound from "./components/welcome/NotFound";
+import Welcome from "./components/welcome/Welcome";
+import { Provider } from 'react-redux'
+import store from './reduxstore/appStore'
 
 function App() {
+  console.log("-App");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Let Keep Going !!!!</h1>
-      </header>
+    <div>
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to="/app" />
+        </Route>
+        <Route path="/app">
+        <Provider store={store}><Welcome></Welcome></Provider>
+        </Route>
+        <Route path="*">
+          <NotFound></NotFound>
+        </Route>
+      </Switch>
     </div>
   );
 }
