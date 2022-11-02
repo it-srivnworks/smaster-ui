@@ -11,6 +11,7 @@ const HeaderPage = (props) => {
   console.log("---HeaderPage");
   const dispatch = useDispatch();
   const history = useHistory();
+  const user = sessionStorage.getItem("userEmail");
 
   const logOutHndlr = () => {
     dispatch(authActions.logOut());
@@ -74,7 +75,7 @@ const HeaderPage = (props) => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Profile
+                  {user}
                 </a>
                 <ul className="dropdown-menu">
                   <li>
