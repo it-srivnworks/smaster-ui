@@ -1,6 +1,7 @@
 export const app = "/app"
 export const app_login = "/app/login"
 export const app_home  = "/app/welcome"
+export const app_register  = "/app/register"
 export const app_not_found  = "/app/*"
 
 

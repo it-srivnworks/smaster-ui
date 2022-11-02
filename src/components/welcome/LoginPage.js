@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useInputEmail from "../../hooks/ui/useInputEmail";
+import useInputPassword from "../../hooks/ui/useInputPassword";
 import useLoginChecks from "../../hooks/users/useLoginChecks";
 import useUserSessionCheck from "../../hooks/users/useUserSessionCheck";
 import * as AppConstants from "../../reduxstore/AppConstants";
+import * as approutes from "../../reduxstore/AppRoutes";
+import { useHistory } from "react-router-dom";
 
 const LoginPage = () => {
-  console.log("--Login");
+  console.log("--Login...");
+  const [isSubmit, setIsSubmit] = useState(true);
+  const history = useHistory();
 
   const {
     inputVal: emailInputVal,
@@ -18,28 +23,46 @@ const LoginPage = () => {
   } = useInputEmail();
 
   const {
-    respSCode,
+    passwordVal: pwdVal,
+    isPasswordError: isPwdError,
+    isTouched: isPwdTouched,
+    errorMsg: pwdErrorMsg,
+    showPassword: showPwd,
+    valChangeH: pwdChangeH,
+    inputBlurH: pwdBlurH,
+    toggleDisplay: toggleDisplayPwd,
+    resetField: resetPwd,
+  } = useInputPassword();
+
+  const {
+    respCode,
     respMsg,
-    checkEmail,
+    checkLogin,
     resetField: resetBtn,
   } = useLoginChecks();
 
   const { isLoginExist: checkIsLogin } = useUserSessionCheck();
 
-  const checkEmailHndlr = (e) => {
-    checkEmail(emailInputVal);
+  const checkLoginHndlr = () => {
+    setIsSubmit(false);
+    checkLogin(emailInputVal, pwdVal);
   };
 
-  const resetEmailHndlr = () => {
+  const resetLoginHndlr = () => {
     resetBtn();
     resetEmail();
+    resetPwd();
   };
 
-  useEffect(() => {
-    console.log("Login...");
-    checkIsLogin();
-  }, []);
+  const addNewUserHndlr = () => {
+    console.log('----------------------------')
+    history.replace(approutes.app_register);
+  }
 
+  useEffect(() => {
+    setIsSubmit(true);
+    checkIsLogin();
+  }, [respCode]);
   return (
     <>
       <div className="row">&nbsp;</div>
@@ -53,6 +76,9 @@ const LoginPage = () => {
             <div className="card-body text-primary">
               <label htmlFor="userEmail" className="form-label">
                 Email address&nbsp;&nbsp;
+                {emailError && (
+                  <code className="text-danger">{emailErrorMsg}</code>
+                )}
               </label>
               <div className="input-group mb-3">
                 <input
@@ -65,34 +91,78 @@ const LoginPage = () => {
                   maxLength={40}
                 />
               </div>
-              {emailError && (
-                <div className="input-group mb-3">
-                  <p className="text-danger">{emailErrorMsg}</p>
-                </div>
-              )}
-              <div className="card-body text-dark">
+              <label htmlFor="userEmail" className="form-label">
+                Password&nbsp;&nbsp;
+                {isPwdError && (
+                  <code className="text-danger">{pwdErrorMsg}</code>
+                )}
+              </label>
+              <div className="input-group mb-3">
+                <input
+                  type={showPwd ? "text" : "password"}
+                  className="form-control"
+                  placeholder="Password"
+                  value={pwdVal}
+                  onChange={pwdChangeH}
+                  onBlur={pwdBlurH}
+                  maxLength={30}
+                />
+                {!showPwd && (
+                  <span className="input-group-text" id="basic-addon2">
+                    <i
+                      onClick={toggleDisplayPwd}
+                      className="fa-solid fa-eye-slash"
+                    ></i>
+                  </span>
+                )}
+                {showPwd && (
+                  <span className="input-group-text" id="basic-addon2">
+                    <i
+                      onClick={toggleDisplayPwd}
+                      className="fa-solid fa-eye"
+                    ></i>
+                  </span>
+                )}
+              </div>
+              <div className="input-group mb-3">
                 <button
                   type="button"
                   className="btn btn-dark"
-                  disabled={emailError | !isEmailTouched}
-                  onClick={checkEmailHndlr}
+                  disabled={
+                    !(
+                      !emailError &&
+                      isEmailTouched &&
+                      !isPwdError &&
+                      isPwdTouched
+                    ) || !isSubmit
+                  }
+                  onClick={checkLoginHndlr}
                 >
-                  Enter
+                  Login&nbsp;&nbsp;
+                  {!isSubmit && (
+                    <span
+                      className="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                  )}
                 </button>
                 &nbsp;&nbsp;
                 <button
                   type="button"
                   className="btn btn-secondary"
-                  onClick={resetEmailHndlr}
+                  onClick={resetLoginHndlr}
                 >
                   Reset
                 </button>
+                &nbsp;&nbsp;
+                <button type="button" className="btn btn-dark btn-sm" onClick={addNewUserHndlr}>
+                  Register New User!
+                </button>
               </div>
-              {respSCode === AppConstants.STATUS_ERROR && (
-                <div className="card-body text-primary">
-                  <div className="input-group mb-3">
-                    <p className="text-danger">{respMsg}</p>
-                  </div>
+              {respCode === AppConstants.STATUS_ERROR && (
+                <div className="alert alert-danger" role="alert">
+                  <code>{respMsg}</code>
                 </div>
               )}
             </div>

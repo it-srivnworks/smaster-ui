@@ -1,32 +1,33 @@
-import React, { useEffect, useState } from "react";
+import * as AppConstants from "../../reduxstore/AppConstants";
 
 const useHttpGETParam = () => {
-  const [isResComplete, setResComplete] = useState(false);
-  const [respData, setRespData] = useState([]);
-  const [respError, setError] = useState(null);
 
-  const sendGETParamReq = async (url, reqParam) => {
+  const sendGETParamReq = async (url, reqParam,processRespData) => {
     url = url + "?" + new URLSearchParams(reqParam).toString();
+    
+    let respCode = 0;
+
     fetch(url, { method: "GET" })
       .then((res) => {
         console.log("sendGETParamReq ........: " + url);
+        respCode = res.status;
         return res.json();
       })
       .then((data) => {
-        setRespData(data);
-        setError(null);
-        setResComplete(true);
+        processRespData(respCode,data)
       })
       .catch((error) => {
         console.error("Error:", error);
-        setRespData([]);
-        setError(error);
-        setResComplete(true);
+        if (error != null && error == "TypeError: Failed to fetch") {
+          processRespData(AppConstants.HTTP_BAD_GATEWAY,{statusCode: 503, message : "Connection Issue!"})
+        }else{
+          processRespData(respCode,error)
+        }
       });
   };
 
   
-  return { isResComplete, respData, respError, sendGETParamReq };
+  return { sendGETParamReq };
 };
 
 export default useHttpGETParam;

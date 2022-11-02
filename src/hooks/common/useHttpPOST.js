@@ -1,10 +1,7 @@
 import React, { useState } from "react";
+import * as AppConstants from "../../reduxstore/AppConstants";
 
 const useHttpPOST = () => {
-  const [isReqComplete, setIsReqComplete] = useState(false);
-  const [respStatusCode, setRespStatusCode] = useState();
-  const [respMessage, setRespMessage] = useState();
-  const [respError, setRespError] = useState(null);
 
   const sendPOSTReq = async (url, reqData, processRespData) => {
     const reqOption = {
@@ -13,23 +10,27 @@ const useHttpPOST = () => {
       headers: { "Content-Type": "application/json" },
     };
 
+    let respCode = 0;
+    console.log("sendPostReq : "+JSON.stringify(reqData));
     fetch(url, reqOption)
     .then((res) => {
       console.log("sendPostReq : "+url);
+      respCode = res.status;
       return res.json();
     }).then((data) => {
-        setIsReqComplete(true);
-        setRespStatusCode(data.statusCode)
-        setRespMessage(data.message);
-        processRespData()
+        processRespData(respCode,data)
     }).catch((error) => {
         console.error("Error:", error);
-        setRespError(error);
-        processRespData()
+        if (error != null && error == "TypeError: Failed to fetch") {
+          processRespData(AppConstants.HTTP_BAD_GATEWAY,{statusCode: 503, message : "Connection Issue!"})
+        }else{
+          processRespData(respCode,error)
+        }
+        
       });
   };
 
-  return { isReqComplete , respStatusCode ,respMessage, respError, sendPOSTReq };
+  return {sendPOSTReq };
 };
 
 export default useHttpPOST;
