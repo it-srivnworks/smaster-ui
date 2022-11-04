@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const useInputPassword = () => {
   console.log("--useInputPassword");
   const [passwordVal, setPasswordVal] = useState("");
-  const [isPasswordError, setIsPasswordError] = useState(false);
+  const [isPasswordError, setIsPasswordError] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
   const [isTouched, setIsTouched] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -25,12 +25,13 @@ const useInputPassword = () => {
 
   const resetField = (e) => {
     setPasswordVal("");
-    setIsPasswordError(false);
+    setIsPasswordError(true);
     setErrorMsg("");
     setIsTouched(false);
   };
 
   const validatePassword = (data) => {
+    setIsTouched(true);
     if (data.trim().length == 0) {
       setIsPasswordError(true);
       setErrorMsg("Password cannot be empty!");
@@ -39,7 +40,6 @@ const useInputPassword = () => {
       setErrorMsg("Invalid Password Format!");
     } else {
       setIsPasswordError(false);
-      setIsTouched(true);
     }
   };
 

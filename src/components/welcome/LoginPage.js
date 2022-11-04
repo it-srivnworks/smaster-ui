@@ -9,8 +9,8 @@ import { useHistory } from "react-router-dom";
 
 const LoginPage = () => {
   console.log("--Login...");
-  const [isSubmit, setIsSubmit] = useState(true);
   const history = useHistory();
+  let pageError =false;
 
   const {
     inputVal: emailInputVal,
@@ -35,6 +35,7 @@ const LoginPage = () => {
   } = useInputPassword();
 
   const {
+    respComplete,
     respCode,
     respMsg,
     checkLogin,
@@ -44,7 +45,6 @@ const LoginPage = () => {
   const { isLoginExist: checkIsLogin } = useUserSessionCheck();
 
   const checkLoginHndlr = () => {
-    setIsSubmit(false);
     checkLogin(emailInputVal, pwdVal);
   };
 
@@ -55,14 +55,14 @@ const LoginPage = () => {
   };
 
   const addNewUserHndlr = () => {
-    console.log('----------------------------')
     history.replace(approutes.app_register);
   }
 
   useEffect(() => {
-    setIsSubmit(true);
     checkIsLogin();
-  }, [respCode]);
+  }, [respComplete]);
+
+  pageError = isEmailTouched && !emailError && isPwdTouched  &&  !isPwdError;
   return (
     <>
       <div className="row">&nbsp;</div>
@@ -76,7 +76,7 @@ const LoginPage = () => {
             <div className="card-body text-primary">
               <label htmlFor="userEmail" className="form-label">
                 Email address&nbsp;&nbsp;
-                {emailError && (
+                {isEmailTouched && emailError && (
                   <code className="text-danger">{emailErrorMsg}</code>
                 )}
               </label>
@@ -93,7 +93,7 @@ const LoginPage = () => {
               </div>
               <label htmlFor="userEmail" className="form-label">
                 Password&nbsp;&nbsp;
-                {isPwdError && (
+                {isPwdTouched && isPwdError && (
                   <code className="text-danger">{pwdErrorMsg}</code>
                 )}
               </label>
@@ -128,18 +128,11 @@ const LoginPage = () => {
                 <button
                   type="button"
                   className="btn btn-dark"
-                  disabled={
-                    !(
-                      !emailError &&
-                      isEmailTouched &&
-                      !isPwdError &&
-                      isPwdTouched
-                    ) || !isSubmit
-                  }
+                  disabled={!pageError | !respComplete}
                   onClick={checkLoginHndlr}
                 >
                   Login&nbsp;&nbsp;
-                  {!isSubmit && (
+                  {!respComplete && (
                     <span
                       className="spinner-border spinner-border-sm"
                       role="status"

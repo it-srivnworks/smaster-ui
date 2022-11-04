@@ -4,7 +4,7 @@ const useInputTxt = (minLen) => {
   
     const [inputVal,setInputVal] = useState('')
     const [isTouched,setIsTouched] = useState(false)
-    const [isValError,setIsValError] = useState(false)
+    const [isValError,setIsValError] = useState(true)
     const [errorMsg,setErrorMsg] = useState('')
   
     const valChangeH = (e) =>{
@@ -13,17 +13,19 @@ const useInputTxt = (minLen) => {
     }
 
     const inputBlurH = (e) =>{
+        e.preventDefault();
         setIsTouched(true)
     }
 
     const resetField = (e) =>{
         setInputVal('')
         setIsTouched(false)
-        setIsValError(false)
+        setIsValError(true)
         setErrorMsg('')
     }
 
     const validateInput = (data) =>{
+        setIsTouched(true);
         if(data.trim().length  == 0){
             setIsValError(true)
             setErrorMsg('Input cannot be empty!')
@@ -35,7 +37,7 @@ const useInputTxt = (minLen) => {
         }
     }
 
-    return {inputVal,isValError,errorMsg, minLen,valChangeH,inputBlurH,resetField}
+    return {inputVal,isValError,isTouched, errorMsg, minLen,valChangeH,inputBlurH,resetField}
 }
 
 export default useInputTxt

@@ -8,25 +8,29 @@ import useInputTxt from "../../hooks/ui/useInputTxt";
 
 const RegisterUser = () => {
   console.log("--RegisterUser");
-  const [isSubmit, setIsSubmit] = useState(false);
-  const [isDisabled, setDisabled] = useState(true);
   const [userType, setUserType] = useState([]);
   const [userTypeSel, setUserTypeSel] = useState(0);
+  const [respComplete, setRespComplete] = useState(true);
+  let pageError = false;
 
   const {
     inputVal: emailInputVal,
     isValError: emailError,
     errorMsg: emailErrorMsg,
+    bckEndError: emailBckEndError,
+    bckEndMsg: emailBckEndMsg,
     isTouched: isEmailTouched,
     valChangeH: emailChangeH,
     inputBlurH: emailBlurH,
     resetField: resetEmail,
+    checkBckEnd: checkEmail
   } = useInputEmail();
 
   const {
     inputVal: fnameInputVal,
-    isValError: fnameError,
+    isValError: fNameError,
     errorMsg: fnameErrorMsg,
+    isTouched: fNameTouched,
     valChangeH: fnameChangeH,
     inputBlurH: fnameBlurH,
     resetField: resetFName,
@@ -34,8 +38,9 @@ const RegisterUser = () => {
 
   const {
     inputVal: lnameInputVal,
-    isValError: lnameError,
+    isValError: lNameError,
     errorMsg: lnameErrorMsg,
+    isTouched: lNameTouched,
     valChangeH: lnameChangeH,
     inputBlurH: lnameBlurH,
     resetField: resetLName,
@@ -64,9 +69,11 @@ const RegisterUser = () => {
 
   const postRespFunc = () => {
     console.log("postRespFunc................");
-  }
+    setRespComplete(true);
+  };
 
   const submitHndlr = () => {
+    setRespComplete(false);
     console.log("submitHndlr................");
     let formData = {
       firstName: fnameInputVal,
@@ -75,19 +82,26 @@ const RegisterUser = () => {
       userPassword: pwdVal,
       userType: userTypeSel,
     };
-    let url = 'http://localhost:8080/smaster-home/useradmin/addNewUser';
-    postSendVal(url,formData,postRespFunc)
+    let url = "http://localhost:8080/smaster-home/useradmin/addNewUser";
+    postSendVal(url, formData, postRespFunc);
   };
 
-  const resetSubmitHndlr = () => {};
+  const resetSubmitHndlr = () => {
+    resetEmail()
+    resetFName()
+    resetLName()
+    resetPwd()
+  };
 
   const selectTypeHndlr = (e) => {
     setUserTypeSel(e.target.value);
   };
 
+  const checkEmailHndlr = (e) => {
+    checkEmail(emailInputVal);
+  };
+
   const respFun = (statusCode, data) => {
-    console.log("Processing Response Data statusCode: " + statusCode);
-    console.log("Processing Response Data data: " + JSON.stringify(data));
     setUserType(data);
   };
 
@@ -96,22 +110,22 @@ const RegisterUser = () => {
     getUserType(url, { reqKey: "usertype" }, respFun);
   };
 
-  const submitDisabled = () => {
-    if(!emailError && !fnameError && !lnameError && !isPwdError){
-      setDisabled(false)
-    }else{
-      setDisabled(true)
-    }
-    console.log('.................'+isDisabled)
-  }
-
   useEffect(() => {
     loadData();
   }, []);
 
-  useEffect(() => {
-    submitDisabled();
-  });
+  pageError =
+    fNameTouched &&
+    !fNameError &&
+    lNameTouched &&
+    !lNameError &&
+    isEmailTouched &&
+    isPwdTouched &&
+    !emailError &&
+    !isPwdError &&
+    !emailBckEndError;
+
+  console.log("-->" + pageError);
   return (
     <div>
       <div className="row">&nbsp;</div>
@@ -125,7 +139,7 @@ const RegisterUser = () => {
             <div className="card-body text-primary">
               <label htmlFor="firstName" className="form-label">
                 First Name&nbsp;&nbsp;
-                {fnameError && (
+                {fNameTouched && fNameError && (
                   <code className="text-danger">{fnameErrorMsg}</code>
                 )}
               </label>
@@ -142,7 +156,7 @@ const RegisterUser = () => {
               </div>
               <label htmlFor="lastName" className="form-label">
                 Last Name&nbsp;&nbsp;
-                {lnameError && (
+                {lNameTouched && lNameError && (
                   <code className="text-danger">{lnameErrorMsg}</code>
                 )}
               </label>
@@ -162,6 +176,9 @@ const RegisterUser = () => {
                 {emailError && (
                   <code className="text-danger">{emailErrorMsg}</code>
                 )}
+                {emailBckEndMsg != "" && (
+                  <code className="text-success">{emailBckEndMsg}</code>
+                )}
               </label>
               <div className="input-group mb-3">
                 <input
@@ -173,6 +190,16 @@ const RegisterUser = () => {
                   onBlur={emailBlurH}
                   maxLength={40}
                 />
+                <button
+                  className="btn btn-dark"
+                  type="button"
+                  id="button-addon2"
+                  style={{ fontSize: "12px" }}
+                  onClick={checkEmailHndlr}
+                  disabled={emailError}
+                >
+                  Available?
+                </button>
               </div>
               <label htmlFor="userEmail" className="form-label">
                 Password&nbsp;&nbsp;
@@ -227,11 +254,11 @@ const RegisterUser = () => {
                 <button
                   type="button"
                   className="btn btn-dark"
-                  disabled={isDisabled}
+                  disabled={!pageError | !respComplete}
                   onClick={submitHndlr}
                 >
                   Register&nbsp;&nbsp;
-                  {isSubmit && (
+                  {!respComplete && (
                     <span
                       className="spinner-border spinner-border-sm"
                       role="status"

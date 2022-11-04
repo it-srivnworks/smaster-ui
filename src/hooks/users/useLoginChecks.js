@@ -9,6 +9,7 @@ import useHttpPOST from "../common/useHttpPOST";
 
 const useLoginChecks = () => {
   console.log("--useLoginChecks");
+  const [respComplete, setRespComplete] = useState(true);
   const [respCode, setRespCode] = useState(1);
   const [respMsg, setRespMsg] = useState("");
   
@@ -21,6 +22,7 @@ const useLoginChecks = () => {
   
   const postRespFunc = (statusCode,data) => {
     console.log('Post Response complete!')
+    setRespComplete(true)
     if(statusCode == AppConstants.HTTP_OK){
       successLogin(data)
     }else if(statusCode == AppConstants.HTTP_UNAUTHORIZED){
@@ -36,6 +38,7 @@ const useLoginChecks = () => {
   }
 
   const checkLogin = (dataEmail,dataPwd) => {
+    setRespComplete(false)
     console.log("dataEmail" + dataEmail);
     console.log("dataPwd" + dataPwd);
     const url = "http://localhost:8080/smaster-home/useradmin/authenticate";
@@ -57,7 +60,7 @@ const useLoginChecks = () => {
     history.replace(approutes.app_home);
   };
 
-  return { respCode, respMsg, checkLogin, resetField };
+  return { respComplete, respCode, respMsg, checkLogin, resetField };
 };
 
 export default useLoginChecks;
