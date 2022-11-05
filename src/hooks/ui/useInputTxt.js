@@ -3,10 +3,10 @@ import React, { useState } from 'react'
 const useInputTxt = (minLen) => {
   
     const [inputVal,setInputVal] = useState('')
-    const [isTouched,setIsTouched] = useState(false)
     const [isValError,setIsValError] = useState(true)
     const [errorMsg,setErrorMsg] = useState('')
-  
+    const [isTouched,setIsTouched] = useState(false)
+    
     const valChangeH = (e) =>{
         setInputVal(e.target.value)
         validateInput(e.target.value)
@@ -19,9 +19,9 @@ const useInputTxt = (minLen) => {
 
     const resetField = (e) =>{
         setInputVal('')
-        setIsTouched(false)
         setIsValError(true)
         setErrorMsg('')
+        setIsTouched(false)
     }
 
     const validateInput = (data) =>{
@@ -37,7 +37,7 @@ const useInputTxt = (minLen) => {
         }
     }
 
-    return {inputVal,isValError,isTouched, errorMsg, minLen,valChangeH,inputBlurH,resetField}
+    return {inputVal,isValError, errorMsg,isTouched, minLen,valChangeH,inputBlurH,resetField}
 }
 
 export default useInputTxt

@@ -1,4 +1,3 @@
-import React from "react";
 import { useHistory } from "react-router-dom";
 
 const useUserSessionCheck = () => {
@@ -7,12 +6,17 @@ const useUserSessionCheck = () => {
     
     const isLoginExist = () => {
     const loggedIn = sessionStorage.getItem("loggedIn");
-    if (loggedIn != null && loggedIn == 1) {//<TODO> Add token validation
+    const userEmail = sessionStorage.getItem("userEmail");
+    const userToken = sessionStorage.getItem("userToken");
+      
+    if (loggedIn != null && loggedIn == 1 && userEmail != null && userToken != null) {
       history.replace("/app/welcome");
     } else {
       history.replace("/app/login");
     }
   };
+
+  
 
   return {isLoginExist};
 };

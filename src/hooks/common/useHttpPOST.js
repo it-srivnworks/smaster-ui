@@ -1,20 +1,18 @@
-import React, { useState } from "react";
 import * as AppConstants from "../../reduxstore/AppConstants";
 
 const useHttpPOST = () => {
-
+  console.log("useHttpPOST");
   const sendPOSTReq = async (url, reqData, processRespData) => {
     const reqOption = {
       method: "POST",
       body: JSON.stringify(reqData),
       headers: { "Content-Type": "application/json" },
     };
-
     let respCode = 0;
-    console.log("sendPostReq : "+JSON.stringify(reqData));
+    
     fetch(url, reqOption)
     .then((res) => {
-      console.log("sendPostReq : "+url);
+      console.log("sendPostReq url: "+url);
       respCode = res.status;
       return res.json();
     }).then((data) => {

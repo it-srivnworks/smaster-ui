@@ -46,9 +46,9 @@ const useInputPassword = () => {
   return {
     passwordVal,
     isPasswordError,
-    isTouched,
     errorMsg,
     showPassword,
+    isTouched,
     valChangeH,
     inputBlurH,
     toggleDisplay,

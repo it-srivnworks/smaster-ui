@@ -7,14 +7,11 @@ const useInputEmail = () => {
   const [inputVal, setInputVal] = useState("");
   const [isValError, setIsValError] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
-  const [bckEndMsg, setBckEndMsg] = useState("");
   const [bckEndError, setBckEndError] = useState(true);
+  const [bckEndMsg, setBckEndMsg] = useState("");
   const [isTouched, setIsTouched] = useState(false);
 
   const {
-    isResComplete,
-    respData,
-    respError,
     sendGETParamReq: checkEmailBE,
   } = useHttpGETParam();
   
@@ -29,16 +26,15 @@ const useInputEmail = () => {
     setIsTouched(true);
   };
 
-  const resetField = (e) => {
+  const resetField = () => {
     setInputVal("")
     setIsValError(true)
     setErrorMsg("")
-    setIsTouched(false)
-    setBckEndMsg("")
     setBckEndError(true)
+    setBckEndMsg("")
+    setIsTouched(false)
   };
 
-  
   const validateInput = (data) => {
     setIsTouched(true);
     if (data.trim().length == 0) {
@@ -54,14 +50,14 @@ const useInputEmail = () => {
     }
   };
 
-  const respFun = (statusCode, data) => {
+  const processResp = (statusCode, data) => {
     if(statusCode == AppConstants.HTTP_OK){
     let respS = data.statusCode
     console.log(statusCode)
     if(respS == AppConstants.HTTP_IM_USED){
       setBckEndMsg("Email Already Used!");
       setBckEndError(true)
-    } else if (respS == AppConstants.HTTP_DATNOTFOUND){
+    } else if (respS == AppConstants.HTTP_NOT_FOUND){
       setBckEndMsg("Email donot exist. OK to use!");
       setBckEndError(false)
     }else{
@@ -76,7 +72,7 @@ const useInputEmail = () => {
 
   const checkBckEnd = (emailVal) => {
     const url = "http://localhost:8080/smaster-home/users/checkUserByEmail";
-    checkEmailBE(url, { userEmail : emailVal }, respFun);
+    checkEmailBE(url, { userEmail : emailVal }, processResp);
   };
 
   return {
@@ -88,8 +84,8 @@ const useInputEmail = () => {
     isTouched,
     valChangeH,
     inputBlurH,
-    resetField,
     checkBckEnd,
+    resetField,
   };
 };
 

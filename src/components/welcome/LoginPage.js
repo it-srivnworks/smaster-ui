@@ -25,9 +25,9 @@ const LoginPage = () => {
   const {
     passwordVal: pwdVal,
     isPasswordError: isPwdError,
-    isTouched: isPwdTouched,
     errorMsg: pwdErrorMsg,
     showPassword: showPwd,
+    isTouched: isPwdTouched,
     valChangeH: pwdChangeH,
     inputBlurH: pwdBlurH,
     toggleDisplay: toggleDisplayPwd,
@@ -42,7 +42,9 @@ const LoginPage = () => {
     resetField: resetBtn,
   } = useLoginChecks();
 
-  const { isLoginExist: checkIsLogin } = useUserSessionCheck();
+  const { 
+    isLoginExist: checkIsLogin 
+  } = useUserSessionCheck();
 
   const checkLoginHndlr = () => {
     checkLogin(emailInputVal, pwdVal);

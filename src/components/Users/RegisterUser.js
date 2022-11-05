@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import useHttpGET from "../../hooks/common/useHttpGET";
 import useHttpGETParam from "../../hooks/common/useHttpGETParam";
 import useHttpPOST from "../../hooks/common/useHttpPOST";
 import useInputEmail from "../../hooks/ui/useInputEmail";

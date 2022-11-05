@@ -2,11 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const userSlice = createSlice({
     name: "addUser",
-    initialState: { addUserCounter: 0 },
+    initialState: { },
     reducers: {
       increment(state) {
-        console.log(state.addUserCounter);
-        state.addUserCounter++;
+        console.log('');
       },
     },
   });

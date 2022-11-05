@@ -1,30 +1,30 @@
-import React, { useCallback, useEffect, useState } from "react";
+import * as AppConstants from "../../reduxstore/AppConstants";
 
 const useHttpGET = () => {
-  const [isReqComplete, setIsReqComplete] = useState(false);
-  const [respData, updateRespData] = useState([]);
-  const [respError, setError] = useState(null);
+  console.log("useHttpGET");
+  let respCode = 0;
 
   const sendGETReq = async (url,processRespData) => {
-    console.log("Start Loading Data");
     fetch(url, { method: "GET" })
       .then((res) => {
         console.log("sendGETReq url :" + url);
+        respCode = res.status;
         return res.json();
       })
       .then((data) => {
-        updateRespData(data);
-        setIsReqComplete(true);
-        processRespData()
+        processRespData(respCode,data)
       })
       .catch((error) => {
         console.error("Error:", error);
-        setError(error);
-        processRespData()
+        if (error != null && error == "TypeError: Failed to fetch") {
+          processRespData(AppConstants.HTTP_BAD_GATEWAY,{statusCode: 503, message : "Connection Issue!"})
+        }else{
+          processRespData(respCode,error)
+        }
       });
   };
 
-  return { isReqComplete, respData, respError , sendGETReq};
+  return {sendGETReq};
 };
 
 export default useHttpGET;

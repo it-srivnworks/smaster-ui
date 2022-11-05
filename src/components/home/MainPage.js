@@ -1,9 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import UserDashBoard from "../dashboard/UserDashBoard";
-import AddNewUser from "../Users/AddNewUser";
 import UserHome from "../Users/UserHome";
-import ViewUserInfo from "../Users/ViewUserInfo";
 import * as approutes from "../../reduxstore/AppRoutes";
 
 const MainPage = () => {

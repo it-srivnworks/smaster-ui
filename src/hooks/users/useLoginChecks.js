@@ -12,7 +12,6 @@ const useLoginChecks = () => {
   const [respComplete, setRespComplete] = useState(true);
   const [respCode, setRespCode] = useState(1);
   const [respMsg, setRespMsg] = useState("");
-  
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -20,7 +19,7 @@ const useLoginChecks = () => {
     sendPOSTReq: postSendVal
   } = useHttpPOST();
   
-  const postRespFunc = (statusCode,data) => {
+  const processResp = (statusCode,data) => {
     console.log('Post Response complete!')
     setRespComplete(true)
     if(statusCode == AppConstants.HTTP_OK){
@@ -39,23 +38,21 @@ const useLoginChecks = () => {
 
   const checkLogin = (dataEmail,dataPwd) => {
     setRespComplete(false)
-    console.log("dataEmail" + dataEmail);
-    console.log("dataPwd" + dataPwd);
     const url = "http://localhost:8080/smaster-home/useradmin/authenticate";
     const postData = {
       userEmail: dataEmail,
       userPassword: dataPwd
     };
-    postSendVal(url,postData,postRespFunc)
+    postSendVal(url,postData,processResp)
   }
 
-  const resetField = (e) => {
+  const resetField = () => {
     setRespCode("");
     setRespMsg("");
   };
 
   const successLogin = (data) => {
-    console.log("successLogin");
+    console.log("Success Login");
     dispatch(authActions.loggIn({ userEmail : data.userEmail, userToken: data.token }));
     history.replace(approutes.app_home);
   };

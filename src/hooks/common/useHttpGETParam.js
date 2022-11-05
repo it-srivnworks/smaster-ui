@@ -1,15 +1,14 @@
 import * as AppConstants from "../../reduxstore/AppConstants";
 
 const useHttpGETParam = () => {
-
+  console.log("useHttpGETParam");
   const sendGETParamReq = async (url, reqParam,processRespData) => {
     url = url + "?" + new URLSearchParams(reqParam).toString();
-    
     let respCode = 0;
 
     fetch(url, { method: "GET" })
       .then((res) => {
-        console.log("sendGETParamReq ........: " + url);
+        console.log("sendGETParamReq url: " + url);
         respCode = res.status;
         return res.json();
       })
