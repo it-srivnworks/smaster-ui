@@ -58,9 +58,6 @@ const RegisterUser = () => {
   } = useInputPassword();
 
   const {
-    isResComplete,
-    respData,
-    respError,
     sendGETParamReq: getUserType,
   } = useHttpGETParam();
 
@@ -100,13 +97,13 @@ const RegisterUser = () => {
     checkEmail(emailInputVal);
   };
 
-  const respFun = (statusCode, data) => {
+  const processResp = (statusCode, data) => {
     setUserType(data);
   };
 
   const loadData = () => {
     const url = "http://localhost:8080/smaster-home/data/getKVRefData";
-    getUserType(url, { reqKey: "usertype" }, respFun);
+    getUserType(url, { reqKey: "usertype" }, processResp);
   };
 
   useEffect(() => {

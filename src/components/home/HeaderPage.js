@@ -20,9 +20,8 @@ const HeaderPage = (props) => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container-fluid">
-          <img
+      <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <img
             src={logo}
             alt="Logo"
             width="40"
@@ -30,93 +29,32 @@ const HeaderPage = (props) => {
             border="0px solid #555"
             className="d-inline-block align-text-top"
           />
-          <NavLink className="navbar-brand" to={approutes.app_home_dashboard}>
+         <NavLink className="navbar-brand" to={approutes.app_home_dashboard}>
             &nbsp;&nbsp;Smaster
           </NavLink>
+        <button
+          className="navbar-toggler position-absolute d-md-none collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#sidebarMenu"
+          aria-controls="sidebarMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="navbar-nav">
+          <div className="nav-item text-nowrap">
           <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink
-                  className="nav-link"
-                  activeClassName="nav-link active"
-                  aria-current="page"
-                  to={approutes.app_home_dashboard}
-                >
-                  Dashboard
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className="nav-link"
-                  activeClassName="nav-link active"
-                  to={approutes.app_home_users}
-                >
-                  Users
-                </NavLink>
-              </li>
-            </ul>
-            <ul className="navbar-nav">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  {user}
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                    Notifications
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                    Roles
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Others
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <ul className="navbar-nav">
-              <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            </ul>
-            <ul className="navbar-nav">
-              <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            </ul>
-            <form className="d-flex" role="search">
-              <button
                 className="btn btn-outline-light"
                 type="button"
                 onClick={logOutHndlr}
               >
                 Log Out
               </button>
-            </form>
           </div>
         </div>
-      </nav>
+      </header>
     </>
   );
 };

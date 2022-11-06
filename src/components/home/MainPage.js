@@ -9,7 +9,6 @@ const MainPage = () => {
 
   return (
     <>
-      <div className="main-panel">
         <Switch>
           <Route path={approutes.app_home} exact>
             <Redirect to={approutes.app_home_dashboard} />
@@ -21,7 +20,6 @@ const MainPage = () => {
             <UserHome></UserHome>
           </Route>
         </Switch>
-      </div>
     </>
   );
 };

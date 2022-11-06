@@ -6,7 +6,7 @@ const authSlice = createSlice({
   reducers: {
     loggIn : (state,action) => {
       //state.loggedIn = 1;
-      //state.userLogin.userEmail = action.payload.userEmail
+      state.userLogin.userEmail = action.payload.userEmail
       //state.userLogin.userToken = action.payload.userToken
       sessionStorage.setItem("loggedIn",1)
       sessionStorage.setItem("userEmail",action.payload.userEmail)
@@ -14,7 +14,7 @@ const authSlice = createSlice({
     },
     logOut : (state,action) => {
       //state.loggedIn = 0;
-      //state.userLogin.userEmail = ""
+      state.userLogin.userEmail = ""
       //state.userLogin.userToken = ""
       sessionStorage.removeItem("loggedIn")
       sessionStorage.removeItem("userEmail")
