@@ -1,0 +1,23 @@
+/* SidePanel BG color */
+[class*=sidebar-dark-] {
+    background-color: #083B66;
+}
+
+/* Logo */
+.brand-link .brand-image {
+    float: left;
+    line-height: .8;
+    margin-left: 0.8rem;
+    margin-right: 0.5rem;
+    margin-top: -3px;
+    max-height: 50px;
+    width: auto;
+    border: 2px solid #ffffff;
+    padding: 3px;
+    width: auto;
+}
+
+/* Body BG color */
+.content-wrapper {
+    background-color: #e1eaf2;
+}
