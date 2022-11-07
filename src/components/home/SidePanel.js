@@ -6,7 +6,7 @@ const SidePanel = () => {
   return (
     <>
       <aside className="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="index3.html" className="brand-link">
+        <a href="#" className="brand-link">
           <img
             src="/assets/images/srivn_logo.png"
             alt="Srivn Logo"
@@ -63,17 +63,26 @@ const SidePanel = () => {
                     data-accordion="false"
                   >
                     <li className="nav-item">
-                      <a href="pages/widgets.html" className="nav-link">
-                        <i className="nav-icon fa-solid fa-gauge" />
-                        <p>&nbsp;DashBoard</p>
-                      </a>
+                        <NavLink
+                          className="nav-link"
+                          activeClassName="nav-link"
+                          aria-current="page"
+                          to={approutes.app_home_dashboard}
+                        >
+                          <i className="nav-icon fa-solid fa-gauge" /> Dashboard
+                        </NavLink>
                     </li>
 
                     <li className="nav-item">
-                      <a href="pages/widgets.html" className="nav-link">
-                        <i className="nav-icon fa-solid  fa-user" />
-                        <p>Users</p>
-                      </a>
+                        <NavLink
+                          className="nav-link"
+                          activeClassName="nav-link"
+                          aria-current="page"
+                          to={approutes.app_home_users}
+                        >
+                          <i className="nav-icon fa-solid  fa-user" />
+                          Users
+                        </NavLink>
                     </li>
                   </ul>
                 </nav>

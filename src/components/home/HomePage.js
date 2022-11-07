@@ -4,7 +4,6 @@ import useUserSessionCheck from "../../hooks/users/useUserSessionCheck";
 import ContainerPage from "./ContainerPage";
 import FooterPage from "./FooterPage";
 import HeaderPage from "./HeaderPage";
-import MainPage from "./MainPage";
 import SidePanel from "./SidePanel";
 
 const HomePage = () => {
