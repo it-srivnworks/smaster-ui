@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -11,7 +11,7 @@ const StudentDetails = () => {
   console.log("StudentDetails");
   const userEmail = sessionStorage.getItem("userEmail");
   const { sendGETParamReq: getUserDetails } = useHttpGETParam();
-  const [editable, setEditable] = useState(true)
+  const [editable, setEditable] = useState(true);
   const [userDetails, setUserDetails] = useState({
     dob: "01-Jan-2001",
     inDate: "25-Dec-2000",
@@ -24,7 +24,6 @@ const StudentDetails = () => {
       aaddressLine02: "",
     },
   });
- 
 
   const processResp = (statusCode, data) => {
     setUserDetails(data);
@@ -60,18 +59,14 @@ const StudentDetails = () => {
     getUserDetails(url, { userEmail: userEmail }, processResp);
   };
 
-  const updateData = () =>{
-    if(!editable){
-      console.log('Saving to Server')
-    }else{
-      setEditable(!editable)
+  const updateData = () => {
+    console.log(userDetails);
+    if (!editable) {
+      console.log("Saving to Server");
+    } else {
+      setEditable(!editable);
     }
-    
-  }
-
-  const changeData = () =>{
-    console.log('changeDate......')
-  }
+  };
 
   useEffect(() => {
     loadData();
@@ -79,6 +74,7 @@ const StudentDetails = () => {
 
   return (
     <>
+      
       <section className="content-header">
         <div className="container-fluid">
           <div className="row mb-2">
@@ -158,27 +154,39 @@ const StudentDetails = () => {
               <div className="card card-row card-primary">
                 <div className="card-header">
                   <h6 className="card-title">
-                  <strong>Additonal Info</strong>
+                    <strong>Additonal Info</strong>
                   </h6>
                   <div className="card-tools">
-                    
-                  <button type="button" className="btn btn-primary btn-sm" onClick={updateData}>
-                      {editable && <i className="fas fa-pen" ></i>}
-                      {!editable && <h5>Save</h5>}
-                  </button>
+                    {editable && (
+                      <button
+                        type="button"
+                        className="btn btn-block btn-primary btn-sm"
+                        onClick={updateData}
+                      >
+                        Edit
+                      </button>
+                    )}
+                    {!editable && (
+                      <button
+                        type="button"
+                        className="btn btn-block btn-primary btn-sm"
+                        onClick={updateData}
+                      >
+                        Save
+                      </button>
+                    )}
                   </div>
                 </div>
 
                 <div className="card-body">
                   <div className="form-group">
                     <strong>Address</strong>
-                    <textarea 
-                    className="form-control" 
-                    rows={2} 
-                    value={userDetails.primaryAddress.addressLine01}
-                    disabled={editable}
-                    onChange={changeData} />
-
+                    <textarea
+                      className="form-control"
+                      rows={2}
+                      defaultValue={userDetails.primaryAddress.addressLine01}
+                      disabled={editable}
+                    />
                   </div>
                   <div className="row">
                     <div className="col-sm-6">
@@ -187,9 +195,8 @@ const StudentDetails = () => {
                         <input
                           type="text"
                           className="form-control"
-                          value={userDetails.primaryAddress.city}
+                          defaultValue={userDetails.primaryAddress.city}
                           disabled={editable}
-                          onChange={changeData}
                         />
                       </div>
                     </div>
@@ -199,9 +206,8 @@ const StudentDetails = () => {
                         <input
                           type="text"
                           className="form-control"
-                          value={userDetails.primaryAddress.state}
+                          defaultValue={userDetails.primaryAddress.state}
                           disabled={editable}
-                          onChange={changeData}
                         />
                       </div>
                     </div>
@@ -213,9 +219,8 @@ const StudentDetails = () => {
                         <input
                           type="text"
                           className="form-control"
-                          value={userDetails.primaryAddress.country}
+                          defaultValue={userDetails.primaryAddress.country}
                           disabled={editable}
-                          onChange={changeData}
                         />
                       </div>
                     </div>
@@ -225,9 +230,8 @@ const StudentDetails = () => {
                         <input
                           type="text"
                           className="form-control"
-                          value={userDetails.primaryAddress.postCode}
+                          defaultValue={userDetails.primaryAddress.postCode}
                           disabled={editable}
-                          onChange={changeData}
                         />
                       </div>
                     </div>
