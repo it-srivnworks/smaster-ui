@@ -27,11 +27,11 @@ const StudentDetails = () => {
 
   const postRespFunc = () => {
     console.log("postRespFunc................");
-    setRespComplete(true)
+    setRespComplete(true);
   };
 
   function onSubmit(data) {
-    setRespComplete(false)
+    setRespComplete(false);
     console.log(data);
     let url =
       "http://localhost:8080/smaster-home/users/students/updateNewStudentData";
@@ -40,7 +40,7 @@ const StudentDetails = () => {
   }
 
   const processResp = (statusCode, data) => {
-    setRespComplete(true)
+    setRespComplete(true);
     reset(data);
     setDob(data.dob);
   };
@@ -58,7 +58,7 @@ const StudentDetails = () => {
   };
 
   const loadData = () => {
-    setRespComplete(false)
+    setRespComplete(false);
     const url =
       "http://localhost:8080/smaster-home/users/students/getStudentDetials";
     getUserDetails(url, { userEmail: userEmail }, processResp);
@@ -83,245 +83,271 @@ const StudentDetails = () => {
         </section>
         <section className="content">
           <div className="container-fluid">
-          <div className="overlay-wrapper">
-          {!respComplete &&
-          <div className="overlay">
-            <i className="fas fa-3x fa-sync-alt fa-spin" />
-            <div className="text-bold pt-2">Updating...</div>
-          </div>
-          }
-             <div className="row">
-              <div className="col-md-3">
-                <div className="card card-primary card-outline">
-                  <div className="card-body box-profile">
-                    <div className="text-center">
-                      <img
-                        className="profile-user-img img-fluid img-circle"
-                        src="../../dist/img/user4-128x128.jpg"
-                        alt="User profile picture"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="profile-username text-center">
-                        {getValues("firstName")}&nbsp;{getValues("lastName")}
-                      </h3>
-                      <p className="text-muted text-center">Student</p>
-                      <hr />
-                      <div className="card-body">
-                        <div className="form-group">
-                          <strong>
-                            <i className="fa-solid fa-envelope" /> Email
-                          </strong>
-                          <input
-                            type="email"
-                            className="form-control"
-                            id="email"
-                            placeholder="email"
-                            defaultValue={getValues("userEmail")}
-                            readOnly
-                          />
-                        </div>
-                        <div className="form-group">
-                          <strong>
-                            <i className="fa-regular fa-calendar-days" /> Date
-                            of Birth
-                          </strong>
-                          <DatePicker
-                            wrapperClassName="datePicker"
-                            dateFormat="dd-MMM-yyyy"
-                            selected={new Date(dob)}
-                            onChange={(d) => changeDOB(d)}
-                            disabled={disable}
-                          />
-                        </div>
+            <div className="overlay-wrapper">
+              {!respComplete && (
+                <div className="overlay">
+                  <i className="fas fa-3x fa-sync-alt fa-spin" />
+                  <div className="text-bold pt-2">Updating...</div>
+                </div>
+              )}
+              <div className="row">
+                <div className="col-md-3">
+                  <div className="card card-primary card-outline">
+                    <div className="card-body box-profile">
+                      <div className="text-center">
+                        <img
+                          className="profile-user-img img-fluid img-circle"
+                          src="../../dist/img/user4-128x128.jpg"
+                          alt="User profile picture"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="profile-username text-center">
+                          {getValues("firstName")}&nbsp;{getValues("lastName")}
+                        </h3>
+                        <p className="text-muted text-center">Student</p>
+                        <hr />
+                        <div className="card-body">
+                          <div className="form-group">
+                            <strong>
+                              <i className="fa-solid fa-envelope" />  &nbsp;&nbsp; Email
+                            </strong>
+                            <input
+                              type="email"
+                              className="form-control"
+                              id="email"
+                              placeholder="email"
+                              defaultValue={getValues("userEmail")}
+                              readOnly
+                            />
+                          </div>
+                          <div className="form-group">
+                            <strong>
+                              <i className="fa-regular fa-calendar-days" />  &nbsp;&nbsp; Date
+                              of Birth
+                            </strong>
+                            <DatePicker
+                              wrapperClassName="datePicker"
+                              dateFormat="dd-MMM-yyyy"
+                              selected={new Date(dob)}
+                              onChange={(d) => changeDOB(d)}
+                              disabled={disable}
+                            />
+                          </div>
 
-                        <div className="form-group">
-                          <strong>
-                            <i className="fa-regular fa-calendar-days" /> Date
-                            of Joining
-                          </strong>
-                          <DatePicker
-                            wrapperClassName="datePicker"
-                            dateFormat="dd-MMM-yyyy"
-                            selected={new Date(getValues("inDate"))}
-                            //onChange={(d) => changeInDate(d)}
-                            disabled={true}
-                          />
+                          <div className="form-group">
+                            <strong>
+                              <i className="fa-regular fa-calendar-days" />  &nbsp;&nbsp; Date
+                              of Joining
+                            </strong>
+                            <DatePicker
+                              wrapperClassName="datePicker"
+                              dateFormat="dd-MMM-yyyy"
+                              selected={new Date(getValues("inDate"))}
+                              //onChange={(d) => changeInDate(d)}
+                              disabled={true}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card card-row card-primary">
-                  <div className="card-header">
-                    <h6 className="card-title">
-                      <strong>Additonal Info</strong>
-                    </h6>
-                    <div className="card-tools">
-                      {disable && (
-                        <button
-                          type="button"
-                          className="btn btn-block btn-primary btn-sm"
-                          onClick={() => setDisable(false)}
-                        >
-                          Edit
-                        </button>
-                      )}
-                      {!disable && (
-                        <button
-                          type="submit"
-                          className="btn btn-block btn-primary btn-sm"
-                        >
-                          Save
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                  <div className="card-body">
-                    <div className="form-group">
-                      <strong>Mobile</strong>
-                      <input
-                        type="text"
-                        className="form-control"
-                        disabled={disable}
-                        {...register("mobile")}
-                      />
-                      {errors.mobile != null && (
-                        <code className="text-danger">
-                          {errors.mobile?.message}
-                        </code>
-                      )}
-                    </div>
-                    <div className="form-group">
-                      <strong>Address</strong>
-                      <textarea
-                        className="form-control"
-                        rows={2}
-                        disabled={disable}
-                        {...register("primaryAddress.addressLine01")}
-                      />
-                      {errors.primaryAddress != null && (
-                        <code className="text-danger">
-                          {errors.primaryAddress.addressLine01?.message}
-                        </code>
-                      )}
-                    </div>
-                    <div className="row">
-                      <div className="col-sm-6">
-                        <div className="form-group">
-                          <strong>City</strong>
-                          <input
-                            type="text"
-                            className="form-control"
-                            disabled={disable}
-                            {...register("primaryAddress.city")}
-                          />
-                        </div>
-                        {errors.primaryAddress != null && (
-                          <code className="text-danger">
-                            {errors.primaryAddress.city?.message}
-                          </code>
+                <div className="col-md-4">
+                  <div className="card card-row card-primary">
+                    <div className="card-header">
+                      <h6 className="card-title">
+                        <strong>Additonal Info</strong>
+                      </h6>
+                      <div className="card-tools">
+                        {disable && (
+                          <button
+                            type="button"
+                            className="btn btn-block btn-primary btn-sm"
+                            onClick={() => setDisable(false)}
+                          >
+                            Edit
+                          </button>
                         )}
-                      </div>
-                      <div className="col-sm-6">
-                        <div className="form-group">
-                          <strong>State</strong>
-                          <input
-                            type="text"
-                            className="form-control"
-                            disabled={disable}
-                            {...register("primaryAddress.state")}
-                          />
-                        </div>
-                        {errors.primaryAddress != null && (
-                          <code className="text-danger">
-                            {errors.primaryAddress.state?.message}
-                          </code>
+                        {!disable && (
+                          <button
+                            type="submit"
+                            className="btn btn-block btn-primary btn-sm"
+                          >
+                            Save
+                          </button>
                         )}
                       </div>
                     </div>
-                    <div className="row">
-                      <div className="col-sm-6">
-                        <div className="form-group">
-                          <strong>Country</strong>
-                          <input
-                            type="text"
-                            className="form-control"
-                            disabled={disable}
-                            {...register("primaryAddress.country")}
-                          />
-                        </div>
-                        {errors.primaryAddress != null && (
+                    <div className="card-body">
+                      <div className="form-group">
+                        <strong>
+                          <i className="fa-solid fa-mobile-retro" />
+                          &nbsp;&nbsp;  Mobile
+                        </strong>
+                        <input
+                          type="text"
+                          className="form-control"
+                          disabled={disable}
+                          {...register("mobile")}
+                        />
+                        {errors.mobile != null && (
                           <code className="text-danger">
-                            {errors.primaryAddress.country?.message}
+                            {errors.mobile?.message}
                           </code>
                         )}
                       </div>
-                      <div className="col-sm-6">
-                        <div className="form-group">
-                          <strong>PostCode</strong>
-                          <input
-                            type="text"
-                            className="form-control"
-                            disabled={disable}
-                            {...register("primaryAddress.postCode")}
-                          />
+                      <div className="form-group">
+                        <strong>
+                          <i className="fa-solid fa-location-dot" />
+                          &nbsp;&nbsp; Address
+                        </strong>
+                        <textarea
+                          className="form-control"
+                          rows={2}
+                          disabled={disable}
+                          {...register("primaryAddress.addressLine01")}
+                        />
+                        {errors.primaryAddress != null && (
+                          <code className="text-danger">
+                            {errors.primaryAddress.addressLine01?.message}
+                          </code>
+                        )}
+                      </div>
+                      <div className="row">
+                        <div className="col-sm-6">
+                          <div className="form-group">
+                            <strong>
+                              <i className="fa-solid fa-location-dot" />
+                              &nbsp;&nbsp;  City
+                            </strong>
+                            <input
+                              type="text"
+                              className="form-control"
+                              disabled={disable}
+                              {...register("primaryAddress.city")}
+                            />
+                          </div>
                           {errors.primaryAddress != null && (
                             <code className="text-danger">
-                              {errors.primaryAddress.postCode?.message}
+                              {errors.primaryAddress.city?.message}
+                            </code>
+                          )}
+                        </div>
+                        <div className="col-sm-6">
+                          <div className="form-group">
+                            <strong>
+                              <i className="fa-solid fa-location-dot" />
+                              &nbsp;&nbsp;  State
+                            </strong>
+                            <input
+                              type="text"
+                              className="form-control"
+                              disabled={disable}
+                              {...register("primaryAddress.state")}
+                            />
+                          </div>
+                          {errors.primaryAddress != null && (
+                            <code className="text-danger">
+                              {errors.primaryAddress.state?.message}
                             </code>
                           )}
                         </div>
                       </div>
-                    </div>
-                    <div className="form-group">
-                      <strong>Primary Guardian Email</strong>
-                      <div className="input-group mb-3">
-                        <input
-                          type="text"
-                          className="form-control"
-                          disabled={disable}
-                          {...register("primGuardianEmail")}
-                        />
-                        <div className="input-group-append">
-                          <span className="input-group-text">
-                            <i className="fas fa-check"></i>
-                          </span>
+                      <div className="row">
+                        <div className="col-sm-6">
+                          <div className="form-group">
+                            <strong>
+                              <i className="fa-solid fa-location-dot" />
+                              &nbsp;&nbsp; Country
+                            </strong>
+                            <input
+                              type="text"
+                              className="form-control"
+                              disabled={disable}
+                              {...register("primaryAddress.country")}
+                            />
+                          </div>
+                          {errors.primaryAddress != null && (
+                            <code className="text-danger">
+                              {errors.primaryAddress.country?.message}
+                            </code>
+                          )}
+                        </div>
+                        <div className="col-sm-6">
+                          <div className="form-group">
+                            <strong>
+                              <i className="fa-solid fa-location-dot" />
+                              &nbsp;&nbsp; PostCode
+                            </strong>
+                            <input
+                              type="text"
+                              className="form-control"
+                              disabled={disable}
+                              {...register("primaryAddress.postCode")}
+                            />
+                            {errors.primaryAddress != null && (
+                              <code className="text-danger">
+                                {errors.primaryAddress.postCode?.message}
+                              </code>
+                            )}
+                          </div>
                         </div>
                       </div>
-                      {errors.primGuardianEmail != null && (
-                        <code className="text-danger">
-                          {errors.primGuardianEmail?.message}
-                        </code>
-                      )}
-                    </div>
-                    <div className="form-group">
-                      <strong>Secondary Guardian Email</strong>
-                      <div className="input-group mb-3">
-                        <input
-                          type="text"
-                          className="form-control"
-                          disabled={disable}
-                          {...register("secnGuardianEmail")}
-                        />
-                        <div className="input-group-append">
-                          <span className="input-group-text">
-                            <i className="fas fa-check"></i>
-                          </span>
+                      <div className="form-group">
+                        <strong>
+                        <i className="fa-sharp fa-solid fa-user" />
+
+                          &nbsp;&nbsp; Primary Guardian Email
+                        </strong>
+                        <div className="input-group mb-3">
+                          <input
+                            type="text"
+                            className="form-control"
+                            disabled={disable}
+                            {...register("primGuardianEmail")}
+                          />
+                          <div className="input-group-append">
+                            <span className="input-group-text">
+                              <i className="fas fa-check"></i>
+                            </span>
+                          </div>
                         </div>
+                        {errors.primGuardianEmail != null && (
+                          <code className="text-danger">
+                            {errors.primGuardianEmail?.message}
+                          </code>
+                        )}
                       </div>
-                      {errors.primGuardianEmail != null && (
-                        <code className="text-danger">
-                          {errors.secnGuardianEmail?.message}
-                        </code>
-                      )}
+                      <div className="form-group">
+                        <strong>
+                        <i className="fa-sharp fa-solid fa-user" />
+
+                          &nbsp;&nbsp;Secondary Guardian Email
+                        </strong>
+                        <div className="input-group mb-3">
+                          <input
+                            type="text"
+                            className="form-control"
+                            disabled={disable}
+                            {...register("secnGuardianEmail")}
+                          />
+                          <div className="input-group-append">
+                            <span className="input-group-text">
+                              <i className="fas fa-check"></i>
+                            </span>
+                          </div>
+                        </div>
+                        {errors.primGuardianEmail != null && (
+                          <code className="text-danger">
+                            {errors.secnGuardianEmail?.message}
+                          </code>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
             </div>
           </div>
         </section>
