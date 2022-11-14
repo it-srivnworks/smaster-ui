@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import SingleImageUpload from "../common/SingleImageUpload";
 import StudentDetails from "./students/StudentDetails";
 
 const UserHome = () => {
@@ -7,7 +8,8 @@ const UserHome = () => {
   
   return (
     <>
-      <StudentDetails></StudentDetails>
+      {/*<StudentDetails></StudentDetails>*/}
+      <SingleImageUpload></SingleImageUpload>
     </>
   );
 };

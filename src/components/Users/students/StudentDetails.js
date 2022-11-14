@@ -8,16 +8,20 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { initData, validationCfg } from "./StudentData";
 import useHttpPOST from "../../../hooks/common/useHttpPOST";
+import useHttpGETParamBytes from "../../../hooks/common/useHttpGETParamBytes";
 
 const StudentDetails = () => {
   console.log("StudentDetails");
   const userEmail = sessionStorage.getItem("userEmail");
   const { sendGETParamReq: getUserDetails } = useHttpGETParam();
+  const { sendGETParamReq: getImageData } = useHttpGETParamBytes();
   const { sendPOSTReq: postSendVal } = useHttpPOST();
   const [respComplete, setRespComplete] = useState(true);
 
   const [disable, setDisable] = useState(true);
   const [dob, setDob] = useState("01-Jan-2000");
+  const [profImage, setProfImage] = useState([]);
+  const [disablePic, setDisablePic] = useState(true);
 
   const formOptions = { resolver: yupResolver(validationCfg) };
   formOptions.defaultValues = initData;
@@ -26,18 +30,9 @@ const StudentDetails = () => {
   const { errors } = formState;
 
   const postRespFunc = () => {
-    console.log("postRespFunc................");
     setRespComplete(true);
-  };
-
-  function onSubmit(data) {
-    setRespComplete(false);
-    console.log(data);
-    let url =
-      "http://localhost:8080/smaster-home/users/students/updateNewStudentData";
-    postSendVal(url, data, postRespFunc);
     setDisable(true);
-  }
+  };
 
   const processResp = (statusCode, data) => {
     setRespComplete(true);
@@ -45,6 +40,10 @@ const StudentDetails = () => {
     setDob(data.dob);
   };
 
+  const processRespImage = (statusCode, data) => {
+    const imageObjectURL = URL.createObjectURL(data);
+    setProfImage(imageObjectURL);
+  };
   function datetoStr(d) {
     let dateArr = d.toString().split(" ");
     let newDateStr = dateArr[2] + "-" + dateArr[1] + "-" + dateArr[3];
@@ -57,6 +56,19 @@ const StudentDetails = () => {
     setDob(newD);
   };
 
+  const enablePicEdit = () => {
+    setDisablePic(false);
+  };
+
+  const uploadPic = () => {};
+
+  function onSubmit(data) {
+    setRespComplete(false);
+    let url =
+      "http://localhost:8080/smaster-home/users/students/updateNewStudentData";
+    postSendVal(url, data, postRespFunc);
+  }
+
   const loadData = () => {
     setRespComplete(false);
     const url =
@@ -64,25 +76,33 @@ const StudentDetails = () => {
     getUserDetails(url, { userEmail: userEmail }, processResp);
   };
 
+  const loadImage = () => {
+    const url =
+      "http://localhost:8080/smaster-home/users/students/getProfilePic";
+    getImageData(url, { userEmail: userEmail }, processRespImage);
+  };
+
   useEffect(() => {
     loadData();
+    loadImage();
   }, []);
 
+  console.log("-----" + profImage);
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <section className="content-header">
-          <div className="container-fluid">
-            <div className="row mb-2">
-              <div className="col-sm-6"></div>
-              <div className="col-sm-6">
-                <ol className="breadcrumb float-sm-right"></ol>
-              </div>
+      <section className="content-header">
+        <div className="container-fluid">
+          <div className="row mb-2">
+            <div className="col-sm-6"></div>
+            <div className="col-sm-6">
+              <ol className="breadcrumb float-sm-right"></ol>
             </div>
           </div>
-        </section>
-        <section className="content">
-          <div className="container-fluid">
+        </div>
+      </section>
+      <section className="content">
+        <div className="container-fluid">
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="overlay-wrapper">
               {!respComplete && (
                 <div className="overlay">
@@ -94,11 +114,19 @@ const StudentDetails = () => {
                 <div className="col-md-3">
                   <div className="card card-primary card-outline">
                     <div className="card-body box-profile">
+                      {!disablePic && (
+                        <div className="text-right">
+                          <a className="btn btn-lg" onClick={uploadPic}>
+                            <i className="fas fa-edit" />
+                          </a>
+                        </div>
+                      )}
                       <div className="text-center">
                         <img
                           className="profile-user-img img-fluid img-circle"
-                          src="../../dist/img/user4-128x128.jpg"
-                          alt="User profile picture"
+                          src={profImage}
+                          alt="User"
+                          onMouseEnter={enablePicEdit}
                         />
                       </div>
                       <div>
@@ -110,7 +138,8 @@ const StudentDetails = () => {
                         <div className="card-body">
                           <div className="form-group">
                             <strong>
-                              <i className="fa-solid fa-envelope" />  &nbsp;&nbsp; Email
+                              <i className="fa-solid fa-envelope" />{" "}
+                              &nbsp;&nbsp; Email
                             </strong>
                             <input
                               type="email"
@@ -123,8 +152,8 @@ const StudentDetails = () => {
                           </div>
                           <div className="form-group">
                             <strong>
-                              <i className="fa-regular fa-calendar-days" />  &nbsp;&nbsp; Date
-                              of Birth
+                              <i className="fa-regular fa-calendar-days" />{" "}
+                              &nbsp;&nbsp; Date of Birth
                             </strong>
                             <DatePicker
                               wrapperClassName="datePicker"
@@ -137,8 +166,8 @@ const StudentDetails = () => {
 
                           <div className="form-group">
                             <strong>
-                              <i className="fa-regular fa-calendar-days" />  &nbsp;&nbsp; Date
-                              of Joining
+                              <i className="fa-regular fa-calendar-days" />{" "}
+                              &nbsp;&nbsp; Date of Joining
                             </strong>
                             <DatePicker
                               wrapperClassName="datePicker"
@@ -183,7 +212,7 @@ const StudentDetails = () => {
                       <div className="form-group">
                         <strong>
                           <i className="fa-solid fa-mobile-retro" />
-                          &nbsp;&nbsp;  Mobile
+                          &nbsp;&nbsp; Mobile
                         </strong>
                         <input
                           type="text"
@@ -219,7 +248,7 @@ const StudentDetails = () => {
                           <div className="form-group">
                             <strong>
                               <i className="fa-solid fa-location-dot" />
-                              &nbsp;&nbsp;  City
+                              &nbsp;&nbsp; City
                             </strong>
                             <input
                               type="text"
@@ -238,7 +267,7 @@ const StudentDetails = () => {
                           <div className="form-group">
                             <strong>
                               <i className="fa-solid fa-location-dot" />
-                              &nbsp;&nbsp;  State
+                              &nbsp;&nbsp; State
                             </strong>
                             <input
                               type="text"
@@ -296,8 +325,7 @@ const StudentDetails = () => {
                       </div>
                       <div className="form-group">
                         <strong>
-                        <i className="fa-sharp fa-solid fa-user" />
-
+                          <i className="fa-sharp fa-solid fa-user" />
                           &nbsp;&nbsp; Primary Guardian Email
                         </strong>
                         <div className="input-group mb-3">
@@ -321,8 +349,7 @@ const StudentDetails = () => {
                       </div>
                       <div className="form-group">
                         <strong>
-                        <i className="fa-sharp fa-solid fa-user" />
-
+                          <i className="fa-sharp fa-solid fa-user" />
                           &nbsp;&nbsp;Secondary Guardian Email
                         </strong>
                         <div className="input-group mb-3">
@@ -338,7 +365,7 @@ const StudentDetails = () => {
                             </span>
                           </div>
                         </div>
-                        {errors.primGuardianEmail != null && (
+                        {errors.secnGuardianEmail != null && (
                           <code className="text-danger">
                             {errors.secnGuardianEmail?.message}
                           </code>
@@ -349,9 +376,9 @@ const StudentDetails = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </form>
+          </form>
+        </div>
+      </section>
     </>
   );
 };
