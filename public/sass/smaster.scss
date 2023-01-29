@@ -1,0 +1,8 @@
+$dark : #083B66;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+.dropdown-menu{
+    --bs-dropdown-bg: #083b66;
+    --bs-dropdown-link-color: #fff;
+}
