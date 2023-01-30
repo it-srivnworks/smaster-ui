@@ -6,7 +6,7 @@ const MainPage = () => {
 
   return (
     <>
-    <div className="main-panel">
+    <div className="content-wrapper" style={{minHeight: 706}}>
        <Outlet></Outlet>
     </div>   
     </>

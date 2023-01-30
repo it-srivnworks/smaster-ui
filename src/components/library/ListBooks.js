@@ -6,11 +6,11 @@ import useHttpGETParam from "../../hooks/common/useHttpGET";
 import * as AppConstants from "../../reduxstore/AppConstants";
 
 const ListBooks = () => {
+  console.log("---ListBooks");
   const [bookList, setBookList] = useState([]);
   const { sendGETReq: getBookList } = useHttpGETParam();
 
   const processResp = (statusCode, data) => {
-    console.log("processResp................" + statusCode);
     if (statusCode == AppConstants.HTTP_OK) {
       setBookList(data);
     } else {
@@ -26,15 +26,13 @@ const ListBooks = () => {
 
   const columns = useMemo(() => [
     {
-      // Second group - Details
       Header: "Books List",
-      // Second group columns
       columns: [
         {
           Header: "Title",
           Cell: (row) => {
             return <div>{Number(row.row.id) + 1}</div>;
-          },  
+          },
         },
         {
           Header: "Title",
@@ -52,9 +50,8 @@ const ListBooks = () => {
           Header: "Details",
           accessor: "website",
           Cell: (props) => {
-            console.log(props.cell.value)
-            return (<DetailsTag detailLink={props.cell.value}/>)
-          }
+            return <DetailsTag detailLink={props.cell.value} />;
+          },
         },
       ],
     },
@@ -66,9 +63,9 @@ const ListBooks = () => {
 
   return (
     <>
-      <div className="content-wrapper" style={{ minHeight: "1200px" }}>
+      <div className="content-wrapper">
         <div className="card">
-          <div className="card-header">Books List</div>
+          <div className="card-header-smaster"><h5>Books List</h5></div>
           <div className="card-body">
             <div className="row">
               <div className="col-sm-12">

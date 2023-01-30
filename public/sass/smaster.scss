@@ -6,3 +6,16 @@ $dark : #083B66;
     --bs-dropdown-bg: #083b66;
     --bs-dropdown-link-color: #fff;
 }
+
+.card-header-smaster {
+    background-color: #083b66;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding: 0.75rem 1.25rem;
+    position: relative;
+    color: #fff;
+    text-align: center;
+}
+
+a {
+    text-decoration: none; /* no underline */
+  }

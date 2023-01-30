@@ -1,0 +1,75 @@
+.content-wrapper {
+    background-color: #f4f6f9;
+    font-family: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.content-header {
+    padding: 15px 0.5rem;
+}
+
+.container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    width: 100%;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.info-box {
+    box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+    border: 2px solid #083b66;
+    border-radius: 0.5rem;
+    background-color: #FFFFFF;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 1rem;
+    min-height: 80px;
+    padding: 0.5rem;
+    position: relative;
+    width: 100%;
+    color: #083b66;
+}
+
+.info-box .info-box-icon {
+    border-radius: 0.25rem;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 1.875rem;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    width: 70px;
+}
+
+.info-box .info-box-content {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    line-height: 1.8;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+.info-box .info-box-text, .info-box .progress-description {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.info-box .info-box-desc {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #083b66;
+    font-size: 12px;
+}
+
