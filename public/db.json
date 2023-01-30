@@ -1,675 +1,333 @@
 {
-    "books":[
-        {
-            "isbn":"9781593279509",
-            "title":"Eloquent JavaScript, Third Edition",
-            "subtitle":"A Modern Introduction to Programming",
-            "author":"Marijn Haverbeke",
-            "published":"2018-12-04T00:00:00.000Z",
-            "publisher":"No Starch Press",
-            "pages":472,
-            "description":"JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-            "website":"http://eloquentjavascript.net/"
-        },
-        {
-            "isbn":"9781491943533",
-            "title":"Practical Modern JavaScript",
-            "subtitle":"Dive into ES6 and the Future of JavaScript",
-            "author":"Nicolás Bevacqua",
-            "published":"2017-07-16T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":334,
-            "description":"To get the most out of modern JavaScript, you need learn the latest features of its parent specification, ECMAScript 6 (ES6). This book provides a highly practical look at ES6, without getting lost in the specification or its implementation details.",
-            "website":"https://github.com/mjavascript/practical-modern-javascript"
-        },
-        {
-            "isbn":"9781593277574",
-            "title":"Understanding ECMAScript 6",
-            "subtitle":"The Definitive Guide for JavaScript Developers",
-            "author":"Nicholas C. Zakas",
-            "published":"2016-09-03T00:00:00.000Z",
-            "publisher":"No Starch Press",
-            "pages":352,
-            "description":"ECMAScript 6 represents the biggest update to the core of JavaScript in the history of the language. In Understanding ECMAScript 6, expert developer Nicholas C. Zakas provides a complete guide to the object types, syntax, and other exciting changes that ECMAScript 6 brings to JavaScript.",
-            "website":"https://leanpub.com/understandinges6/read"
-        },
-        {
-            "isbn":"9781449365035",
-            "title":"Speaking JavaScript",
-            "subtitle":"An In-Depth Guide for Programmers",
-            "author":"Axel Rauschmayer",
-            "published":"2014-04-08T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":460,
-            "description":"Like it or not, JavaScript is everywhere these days -from browser to server to mobile- and now you, too, need to learn the language or dive deeper than you have. This concise book guides you into and through JavaScript, written by a veteran programmer who once found himself in the same position.",
-            "website":"http://speakingjs.com/"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        },
-        {
-            "isbn":"9781449331818",
-            "title":"Learning JavaScript Design Patterns",
-            "subtitle":"A JavaScript and jQuery Developer's Guide",
-            "author":"Addy Osmani",
-            "published":"2012-08-30T00:00:00.000Z",
-            "publisher":"O'Reilly Media",
-            "pages":254,
-            "description":"With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-            "website":"http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
-        },
-        {
-            "isbn":"9798602477429",
-            "title":"You Don't Know JS Yet",
-            "subtitle":"Get Started",
-            "author":"Kyle Simpson",
-            "published":"2020-01-28T00:00:00.000Z",
-            "publisher":"Independently published",
-            "pages":143,
-            "description":"The worldwide best selling You Don't Know JS book series is back for a 2nd edition: You Don't Know JS Yet. All 6 books are brand new, rewritten to cover all sides of JS for 2020 and beyond.",
-            "website":"https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed/get-started"
-        },
-        {
-            "isbn":"9781484200766",
-            "title":"Pro Git",
-            "subtitle":"Everything you neeed to know about Git",
-            "author":"Scott Chacon and Ben Straub",
-            "published":"2014-11-18T00:00:00.000Z",
-            "publisher":"Apress; 2nd edition",
-            "pages":458,
-            "description":"Pro Git (Second Edition) is your fully-updated guide to Git and its usage in the modern world. Git has come a long way since it was first developed by Linus Torvalds for Linux kernel development. It has taken the open source world by storm since its inception in 2005, and this book teaches you how to use it like a pro.",
-            "website":"https://git-scm.com/book/en/v2"
-        }  
-	]
+    "books":[{
+  "isbn": 1,
+  "title": "In a Lonely Place",
+  "author": "Gabriello",
+  "count": 5,
+  "website": "http://linkedin.com/amet/erat/nulla/tempus/vivamus/in.jsp"
+}, {
+  "isbn": 2,
+  "title": "Daisies (Sedmikrasky)",
+  "author": "Fayth",
+  "count": 98,
+  "website": "https://clickbank.net/non/interdum/in/ante/vestibulum/ante.js"
+}, {
+  "isbn": 3,
+  "title": "Norma Rae",
+  "author": "Eberhard",
+  "count": 98,
+  "website": "http://linkedin.com/elit.json"
+}, {
+  "isbn": 4,
+  "title": "Air Crew",
+  "author": "Godfree",
+  "count": 86,
+  "website": "https://google.pl/accumsan/tellus/nisi/eu.jsp"
+}, {
+  "isbn": 5,
+  "title": "Starsuckers",
+  "author": "Hildagard",
+  "count": 42,
+  "website": "https://cnet.com/nisi/eu/orci/mauris/lacinia/sapien.jpg"
+}, {
+  "isbn": 6,
+  "title": "Malice N Wonderland",
+  "author": "Josefa",
+  "count": 15,
+  "website": "https://cornell.edu/volutpat/convallis/morbi/odio/odio.html"
+}, {
+  "isbn": 7,
+  "title": "DEFCON: The Documentary",
+  "author": "Debor",
+  "count": 50,
+  "website": "https://hubpages.com/vestibulum.json"
+}, {
+  "isbn": 8,
+  "title": "Sube y Baja",
+  "author": "Elga",
+  "count": 71,
+  "website": "http://earthlink.net/velit.json"
+}, {
+  "isbn": 9,
+  "title": "Last Warrior, The (Last Patrol, The)",
+  "author": "Courtney",
+  "count": 2,
+  "website": "https://wired.com/nisi.json"
+}, {
+  "isbn": 10,
+  "title": "Café Metropole",
+  "author": "Borden",
+  "count": 15,
+  "website": "http://un.org/vitae/mattis/nibh/ligula/nec/sem/duis.json"
+}, {
+  "isbn": 11,
+  "title": "Beyond Re-Animator",
+  "author": "Breanne",
+  "count": 71,
+  "website": "http://surveymonkey.com/tempus/sit/amet/sem/fusce/consequat/nulla.json"
+}, {
+  "isbn": 12,
+  "title": "Woyzeck",
+  "author": "Brice",
+  "count": 33,
+  "website": "http://wordpress.org/a/odio/in/hac/habitasse/platea/dictumst.aspx"
+}, {
+  "isbn": 13,
+  "title": "Gypsy",
+  "author": "Frazier",
+  "count": 42,
+  "website": "https://businesswire.com/vivamus/in/felis/eu/sapien.json"
+}, {
+  "isbn": 14,
+  "title": "Man of Straw (Untertan, Der)",
+  "author": "Yanaton",
+  "count": 56,
+  "website": "http://usatoday.com/praesent.js"
+}, {
+  "isbn": 15,
+  "title": "Double Harness",
+  "author": "Consuelo",
+  "count": 83,
+  "website": "http://de.vu/ullamcorper/augue.xml"
+}, {
+  "isbn": 16,
+  "title": "Parallax View, The",
+  "author": "Rodrigo",
+  "count": 89,
+  "website": "https://foxnews.com/congue.jsp"
+}, {
+  "isbn": 17,
+  "title": "State Affairs (Une affaire d'état)",
+  "author": "Leesa",
+  "count": 33,
+  "website": "http://unicef.org/vulputate/nonummy/maecenas/tincidunt.js"
+}, {
+  "isbn": 18,
+  "title": "Parking (Ting che)",
+  "author": "Lenora",
+  "count": 3,
+  "website": "http://dot.gov/pretium/quis/lectus/suspendisse/potenti.png"
+}, {
+  "isbn": 19,
+  "title": "Nobody Else But You (Poupoupidou)",
+  "author": "Dana",
+  "count": 88,
+  "website": "http://dropbox.com/dictumst/etiam.json"
+}, {
+  "isbn": 20,
+  "title": "Kiwi!",
+  "author": "Dene",
+  "count": 65,
+  "website": "https://usgs.gov/vel/nisl.jpg"
+}, {
+  "isbn": 21,
+  "title": "Necessary Death, A",
+  "author": "Ellis",
+  "count": 38,
+  "website": "https://mail.ru/in/faucibus/orci/luctus/et.jpg"
+}, {
+  "isbn": 22,
+  "title": "Oil, the Baby and the Transylvanians, The (Pruncul, petrolul si Ardelenii)",
+  "author": "Rafi",
+  "count": 83,
+  "website": "http://youtube.com/sit/amet.jsp"
+}, {
+  "isbn": 23,
+  "title": "Mad Love (Juana la Loca)",
+  "author": "Lorita",
+  "count": 97,
+  "website": "http://pcworld.com/felis/eu/sapien/cursus/vestibulum/proin.html"
+}, {
+  "isbn": 24,
+  "title": "Phat Beach",
+  "author": "Kiley",
+  "count": 3,
+  "website": "https://vinaora.com/ultrices/mattis/odio/donec.jpg"
+}, {
+  "isbn": 25,
+  "title": "Down Argentine Way",
+  "author": "Ximenez",
+  "count": 79,
+  "website": "https://amazon.com/in/ante/vestibulum/ante/ipsum/primis.js"
+}, {
+  "isbn": 26,
+  "title": "Babylon 5: Thirdspace",
+  "author": "Janella",
+  "count": 97,
+  "website": "https://macromedia.com/aliquam/convallis/nunc/proin/at/turpis.js"
+}, {
+  "isbn": 27,
+  "title": "Porgy and Bess",
+  "author": "Hillel",
+  "count": 93,
+  "website": "http://mtv.com/augue/luctus/tincidunt/nulla/mollis/molestie.xml"
+}, {
+  "isbn": 28,
+  "title": "Blonde Venus",
+  "author": "Care",
+  "count": 73,
+  "website": "http://java.com/eget/semper/rutrum/nulla/nunc.jsp"
+}, {
+  "isbn": 29,
+  "title": "Dogma",
+  "author": "Devina",
+  "count": 20,
+  "website": "https://comsenz.com/pellentesque/at/nulla/suspendisse/potenti/cras.png"
+}, {
+  "isbn": 30,
+  "title": "Whatever It Takes",
+  "author": "Carmelia",
+  "count": 54,
+  "website": "https://elegantthemes.com/ligula/pellentesque/ultrices/phasellus/id.png"
+}, {
+  "isbn": 31,
+  "title": "Swamp Women",
+  "author": "Rhona",
+  "count": 89,
+  "website": "https://nhs.uk/potenti/nullam/porttitor.json"
+}, {
+  "isbn": 32,
+  "title": "Last Time I Saw Paris, The",
+  "author": "Gottfried",
+  "count": 57,
+  "website": "http://gnu.org/ligula/suspendisse/ornare/consequat.jpg"
+}, {
+  "isbn": 33,
+  "title": "Jour se lève, Le (Daybreak)",
+  "author": "Chandal",
+  "count": 57,
+  "website": "http://wikipedia.org/est/quam/pharetra/magna.xml"
+}, {
+  "isbn": 34,
+  "title": "Toy Story Toons: Partysaurus Rex",
+  "author": "Corabelle",
+  "count": 45,
+  "website": "https://google.ru/massa/tempor.png"
+}, {
+  "isbn": 35,
+  "title": "Mudge Boy, The",
+  "author": "Star",
+  "count": 43,
+  "website": "http://disqus.com/molestie/lorem/quisque/ut/erat/curabitur.html"
+}, {
+  "isbn": 36,
+  "title": "Queen of Hearts",
+  "author": "Vevay",
+  "count": 68,
+  "website": "https://loc.gov/sit/amet/diam/in/magna/bibendum/imperdiet.html"
+}, {
+  "isbn": 37,
+  "title": "Rancho Notorious",
+  "author": "Eugene",
+  "count": 59,
+  "website": "https://opera.com/phasellus/id/sapien/in/sapien/iaculis/congue.jpg"
+}, {
+  "isbn": 38,
+  "title": "The Water Diviner",
+  "author": "Luci",
+  "count": 64,
+  "website": "https://4shared.com/auctor/sed/tristique/in/tempus.html"
+}, {
+  "isbn": 39,
+  "title": "Doogal",
+  "author": "Jeanie",
+  "count": 31,
+  "website": "http://i2i.jp/dui/vel/nisl.js"
+}, {
+  "isbn": 40,
+  "title": "Camera Buff (Amator)",
+  "author": "Goldarina",
+  "count": 98,
+  "website": "http://zdnet.com/etiam/vel/augue/vestibulum/rutrum/rutrum/neque.js"
+}, {
+  "isbn": 41,
+  "title": "Four Lions",
+  "author": "Kassey",
+  "count": 25,
+  "website": "https://nature.com/dui/luctus.js"
+}, {
+  "isbn": 42,
+  "title": "Ninotchka",
+  "author": "Glendon",
+  "count": 51,
+  "website": "https://uiuc.edu/nisl/aenean/lectus/pellentesque/eget/nunc.jsp"
+}, {
+  "isbn": 43,
+  "title": "Hatchet III",
+  "author": "Bondy",
+  "count": 25,
+  "website": "http://sohu.com/risus/semper/porta.json"
+}, {
+  "isbn": 44,
+  "title": "Panic",
+  "author": "Jonas",
+  "count": 39,
+  "website": "http://shareasale.com/consequat/in/consequat.png"
+}, {
+  "isbn": 45,
+  "title": "Turn Me On, Dammit! (Få meg på, for faen)",
+  "author": "Orin",
+  "count": 75,
+  "website": "http://cocolog-nifty.com/amet/justo/morbi/ut/odio.js"
+}, {
+  "isbn": 46,
+  "title": "Hot Lead and Cold Feet",
+  "author": "Sergeant",
+  "count": 2,
+  "website": "https://ed.gov/lacinia/eget.js"
+}, {
+  "isbn": 47,
+  "title": "My Tutor",
+  "author": "Bab",
+  "count": 66,
+  "website": "http://topsy.com/pellentesque.html"
+}, {
+  "isbn": 48,
+  "title": "City Hunter (Sing si lip yan)",
+  "author": "Niels",
+  "count": 56,
+  "website": "https://paypal.com/pretium.jpg"
+}, {
+  "isbn": 49,
+  "title": "Saving Face",
+  "author": "Bethena",
+  "count": 74,
+  "website": "http://reverbnation.com/porttitor/lorem/id/ligula.jpg"
+}, {
+  "isbn": 50,
+  "title": "Blue Angel, The",
+  "author": "Lothaire",
+  "count": 45,
+  "website": "http://dyndns.org/in.png"
+}, {
+  "isbn": 51,
+  "title": "City of the Living Dead (a.k.a. Gates of Hell, The) (Paura nella città dei morti viventi)",
+  "author": "Doralynne",
+  "count": 16,
+  "website": "http://army.mil/integer/tincidunt/ante.xml"
+}, {
+  "isbn": 52,
+  "title": "Life and Times of Allen Ginsberg, The",
+  "author": "Marion",
+  "count": 38,
+  "website": "http://t-online.de/nunc.jpg"
+}, {
+  "isbn": 53,
+  "title": "Irony of Fate, or Enjoy Your Bath! (Ironiya sudby, ili S legkim parom!)",
+  "author": "Matthew",
+  "count": 20,
+  "website": "http://scientificamerican.com/purus/aliquet/at/feugiat/non.js"
+}, {
+  "isbn": 54,
+  "title": "Home of the Brave",
+  "author": "Westbrooke",
+  "count": 10,
+  "website": "https://bbb.org/tempor/convallis/nulla/neque/libero/convallis.jpg"
+}, {
+  "isbn": 55,
+  "title": "In China They Eat Dogs (I Kina spiser de hunde)",
+  "author": "Hansiain",
+  "count": 19,
+  "website": "https://360.cn/faucibus/orci/luctus/et/ultrices.png"
+}]
 }

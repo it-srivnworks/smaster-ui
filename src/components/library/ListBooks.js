@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useEffect } from "react";
+import CustomTable from "../../hooks/common/CustomTable";
+import DetailsTag from "../../hooks/common/DetailsTag";
 import useHttpGETParam from "../../hooks/common/useHttpGET";
 import * as AppConstants from "../../reduxstore/AppConstants";
 
@@ -9,11 +11,11 @@ const ListBooks = () => {
 
   const processResp = (statusCode, data) => {
     console.log("processResp................" + statusCode);
-    if(statusCode == AppConstants.HTTP_OK){
+    if (statusCode == AppConstants.HTTP_OK) {
       setBookList(data);
-    }else{
+    } else {
       //TODO  : Code to put error message
-    } 
+    }
   };
 
   const loadData = () => {
@@ -21,6 +23,42 @@ const ListBooks = () => {
     const url = "http://localhost:3000/books";
     getBookList(url, processResp);
   };
+
+  const columns = useMemo(() => [
+    {
+      // Second group - Details
+      Header: "Books List",
+      // Second group columns
+      columns: [
+        {
+          Header: "Title",
+          Cell: (row) => {
+            return <div>{Number(row.row.id) + 1}</div>;
+          },  
+        },
+        {
+          Header: "Title",
+          accessor: "title",
+        },
+        {
+          Header: "Author",
+          accessor: "author",
+        },
+        {
+          Header: "Count",
+          accessor: "count",
+        },
+        {
+          Header: "Details",
+          accessor: "website",
+          Cell: (props) => {
+            console.log(props.cell.value)
+            return (<DetailsTag detailLink={props.cell.value}/>)
+          }
+        },
+      ],
+    },
+  ]);
 
   useEffect(() => {
     loadData();
@@ -34,59 +72,7 @@ const ListBooks = () => {
           <div className="card-body">
             <div className="row">
               <div className="col-sm-12">
-                <table className="table table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">SrNo</th>
-                      <th scope="col">Title</th>
-                      <th scope="col">Author</th>
-                      <th scope="col">Count</th>
-                      <th scope="col">Details</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {bookList.map((book, index) => (
-                      <tr key={book.isbn}>
-                        <th scope="row">{index + 1}</th>
-                        <td>{book.title}</td>
-                        <td>{book.author}</td>
-                        <td>{book.pages}</td>
-                        <td><button type="button" className="btn btn-outline-info btn-sm">Details</button></td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <div className="col-sm-12">
-                <nav aria-label="Page navigation example">
-                  <ul className="pagination justify-content-end">
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        Previous
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        1
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        2
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        3
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        Next
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
+                <CustomTable columns={columns} data={bookList} />
               </div>
             </div>
           </div>
