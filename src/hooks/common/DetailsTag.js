@@ -1,17 +1,16 @@
 import React from "react";
 
 const DetailsTag = (props) => {
-  return (
+
+   return (
     <>
       <button
         type="button"
         className="btn btn-outline-info btn-sm"
-        onClick={() => {}}
+        onClick={() => {props.openDetail(props.id)}}
       >
         Details
       </button>
-
-      {/*props.detailLink*/}
     </>
   );
 };

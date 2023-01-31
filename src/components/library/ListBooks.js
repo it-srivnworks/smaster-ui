@@ -2,13 +2,13 @@ import React, { useMemo, useState } from "react";
 import { useEffect } from "react";
 import CustomTable from "../../hooks/common/CustomTable";
 import DetailsTag from "../../hooks/common/DetailsTag";
-import useHttpGETParam from "../../hooks/common/useHttpGET";
+import useHttpGET from "../../hooks/common/useHttpGET";
 import * as AppConstants from "../../reduxstore/AppConstants";
 
-const ListBooks = () => {
+const ListBooks = (props) => {
   console.log("---ListBooks");
   const [bookList, setBookList] = useState([]);
-  const { sendGETReq: getBookList } = useHttpGETParam();
+  const { sendGETReq: getBookList } = useHttpGET();
 
   const processResp = (statusCode, data) => {
     if (statusCode == AppConstants.HTTP_OK) {
@@ -22,6 +22,10 @@ const ListBooks = () => {
     console.log("Loading Data");
     const url = "http://localhost:3000/books";
     getBookList(url, processResp);
+  };
+
+  const openBookDetail = (id) => {
+    props.openDetail(id);
   };
 
   const columns = useMemo(() => [
@@ -48,9 +52,11 @@ const ListBooks = () => {
         },
         {
           Header: "Details",
-          accessor: "website",
+          accessor: "id",
           Cell: (props) => {
-            return <DetailsTag detailLink={props.cell.value} />;
+            return (
+              <DetailsTag openDetail={openBookDetail} id={props.cell.value} />
+            );
           },
         },
       ],
@@ -65,7 +71,11 @@ const ListBooks = () => {
     <>
       <div className="content-wrapper">
         <div className="card">
-          <div className="card-header-smaster"><h5>Books List</h5></div>
+          <div className="card-header-smaster">
+            <h5>
+              Books List
+            </h5>
+          </div>
           <div className="card-body">
             <div className="row">
               <div className="col-sm-12">

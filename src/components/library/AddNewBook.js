@@ -4,7 +4,7 @@ import useInputISBN from "../../hooks/ui/useInputISBN";
 import useInputTxt from "../../hooks/ui/useInputTxt";
 import useInputURL from "../../hooks/ui/useInputURL";
 
-const AddNewBook = () => {
+const AddNewBook = (props) => {
   console.log("---AddNewBook");
 
   const {
@@ -60,9 +60,13 @@ const AddNewBook = () => {
   const respFunc = (respCode,respData) => {
     console.log(respData)
   }
+  
+  const backToParent = () => {
+    props.closedSection();
+  };
 
   const addNewBookH = () => {
-    const url = "http://localhost:3000/books/asas";
+    const url = "http://localhost:3000/books/";
     const addData = {
       id: idInputVal,
       title: nameInputVal,
@@ -80,7 +84,14 @@ const AddNewBook = () => {
           <div className="col-md-4">
             <div className="card">
               <div className="card-header-smaster">
-                <h5>Add New Book</h5>
+                <h5>Add New Book<button
+                type="button"
+                className="btn-close-smaster btn-close-white"
+                aria-label="Close"
+                onClick={backToParent}
+              >
+                <i className="fa-solid fa-rectangle-xmark" />
+              </button></h5>
               </div>
               <div className="col-md-12">
               <div className="card-body text-primary">
